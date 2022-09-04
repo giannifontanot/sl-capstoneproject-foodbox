@@ -11,3 +11,7 @@
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
 
 }
+
+.github-image {
+    border-radius: 25px;
+}
