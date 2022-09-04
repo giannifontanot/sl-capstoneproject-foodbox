@@ -1,0 +1,61 @@
+<div *ngIf="admin==true;else other_content">
+    <div class="card-body">
+        <div class="row cell">
+            <div class="cell col-2"></div>
+            <div class="cell col-7">
+                <div class="row cell bg-light border rounded p-1">
+                    <div class="cell col-2 bg-gray"></div>
+                    <div class="cell col-1"></div>
+                    <div class="cell col-6">Food Name</div>
+                    <div class="cell col-2">Price</div>
+                    <div class="cell col-1"></div>
+                </div>
+                <form (ngSubmit)="onSubmit()" [formGroup]="inventoryGroup">
+                    <div class="row cell p-2">
+                        <div class="cell col-2"></div>
+                        <div class="cell col-1"></div>
+                        <div class="cell col-6"><input class="form-control"
+                                                       formControlName="foodName"
+                                                       id="foodName"
+                                                       placeholder="add a new food..."
+                                                       size="25" type="text">
+                        </div>
+                        <div class="cell col-2"><input class="form-control"
+                                                       formControlName="price"
+                                                       id="price"
+                                                       placeholder="0.00"
+                                                       size="2"
+                                                       type="text"></div>
+                        <div class="cell col-1">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div *ngFor="let item of foods" class="row cell border rounded p-1">
+                    <div class="cell col-2">
+                        <button (click)="onDelete(item)" class="btn btn-outline-danger btn-sm">Delete</button>
+                    </div>
+                    <div class="cell col-1">{{item.foodId}}</div>
+                    <div class="cell col-6">{{item.foodName}}</div>
+                    <div class="cell col-2">{{item.price|currency}}</div>
+                    <div class="cell col-1"></div>
+                </div>
+
+            </div>
+            <div class="cell col-3"></div>
+        </div>
+    </div>
+</div>
+<ng-template #other_content>
+
+    <div class="card">
+        <h5 class="card-header">Not allowed</h5>
+        <div class="card-body">
+            <h5 class="card-title">You need to login first</h5>
+            <p class="card-text">In order to see the inventory and add or delete items, first you must be looged in the
+                application.</p>
+            <a (click)="jumpToLogin()" class="btn btn-primary">Go to Login</a>
+        </div>
+    </div>
+</ng-template>

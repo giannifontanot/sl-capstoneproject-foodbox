@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/foodbox-app'),
+      dir: require('path').join(__dirname, './coverage/simplilearn-kitchen-story'),
       subdir: '.',
       reporters: [
         { type: 'html' },

@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class SlCapstoneprojectFoodboxApplication {
 
-
+    @RequestMapping("/")
+    public String greet(){
+        return "welcome!";
+    }
     public static void main(String[] args) {
         SpringApplication.run(SlCapstoneprojectFoodboxApplication.class, args);
     }

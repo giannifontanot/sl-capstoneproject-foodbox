@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "foodbox-app": {
+    "simplilearn-kitchen-story": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -12,22 +12,24 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "ks",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "../../public",
+            "outputPath": "docs/simplilearn-kitchen-story",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/api"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -68,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "foodbox-app:build:production"
+              "browserTarget": "simplilearn-kitchen-story:build:production"
             },
             "development": {
-              "browserTarget": "foodbox-app:build:development"
+              "browserTarget": "simplilearn-kitchen-story:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "foodbox-app:build"
+            "browserTarget": "simplilearn-kitchen-story:build"
           }
         },
         "test": {
@@ -98,9 +100,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
   },
-  "defaultProject": "foodbox-app"
+  "cli": {
+    "analytics": "0c2fa6e6-033e-4005-b6c1-3abbfd653651"
+  }
 }

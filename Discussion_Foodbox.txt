@@ -1,0 +1,197 @@
+PhaseEndProject
+--------------------
+Technologies Used :-
+
+Java :-
+	Core Java
+	Spring Boot
+	Spring JPA /Hibernates
+	Spring Data
+	Spring Security
+
+Database :-
+	MySQL
+
+FrontEnd
+	HTML
+	CSS
+	BootStrap
+	Angular
+
+
+Admin Portal:
+The admin portal deals with all the backend data generation and product information. The admin user should be able to:
+	Add or remove different cuisines to or from the application to build a rich product line
+	Edit food item details like name, price, cuisine, description, and offers to keep it aligned to the current prices
+	Enable or disable the food items
+
+User Portal:
+	It deals with the user activities. The end-user should be able to:
+
+	Sign-in to the application to maintain a record of activities
+	Search for food items based on the search keyword
+	Apply filters and sort results based on different cuisines to get the best deals
+	Add all the selected food items to a cart and customize the purchase at the end
+	Perform a seamless payment process
+	Get an order summary details page once the payment is complete
+
+Front End:-
+	Pre-requisite :-
+		We need to at least have some admin users in the system/database
+	Routes
+		/login - LoginComponent  (Default Page)
+		/register - RegisterComponent (Only For Users)
+		/adminHome 		-> Admin
+			/addFood				-> Add Food Item
+			/updateFood		-> Update Food Item
+			/deleteFood			-> Delete Food Item
+			/searchFood			-> Search Food Item
+			/listFood				-> View All Food Item
+			/addCuisine			-> Add Cuisine
+			/removeCuisine		-> Removing Cuisine
+			/users 					-> all registered users
+		/usersHome	-> User
+			/addFoodToCart			-> Add Food Item
+			/updateFoodToCart		-> Update Food Item
+			/deleteFoodToCart	-> Delete Food Item
+			/searchFood				-> Search Food Item
+			/listFood					-> View All Food Item
+			/cartDetails				-> View Cart
+			/ordersHistory			-> orders history
+		/logout 					-> Logout Route, for thanks message
+		/pageNotFound 		-> Invalid Pages
+
+
+/login -> LoginComponent
+	-> username
+	-> password
+	-> dropdown (Admin/User)
+	-> routerLink to register component
+	Case 1:
+		If user is not admin and trying to logging as admin, Then block the user and prompt to choose user
+
+/register -> RegisterComponent
+	-> username
+	-> Password
+	-> RepeatPassword (UI Validation to check the correctness)
+	-> Phone
+	-> Email
+	-> link to login component
+
+/addFood
+	-> Name
+	-> Description
+	-> Availability
+	-> Price
+	-> Image Location
+	-> Add Food Button ->  "/addFoodItem"(FoodItem) -> adds the food item
+
+/updateFood		-> Update Food Item
+	-> Id
+	-> Name
+	-> Description
+	-> Availability
+	-> Price
+	-> Image Location
+	-> Update Food Button ->  "/updateFoodItem"(FoodItem) -> updates the food item
+
+/deleteFood -> Update Food Item
+	-> Id
+	-> Name
+	-> Delete Food Button ->  "/deleteFoodItem"(FoodItem) -> updates the food item
+/listFood
+	Table -> Id, name, Description, availability, price, image
+	Back -> Home
+
+
+/searchPage
+	name
+	cuisine
+
+/home-Admin
+	 Add Food Item
+	 Update Food Item
+	 Delete Food Item
+	 Search Food Item
+	 View All Food Item
+	Logout
+
+/home-User
+	Search Food Item
+	Add Food Item to cart
+	Delete Food Item from Cart
+	View All Food Items
+	Logout
+
+BackEnd :-
+	Top 5 cuisines with greatest influence on world palate
+		Italian.
+		Japanese.
+		Chinese.
+		Indian.
+		American.
+	Entity :-
+		Cuisine<ENUM>
+		Food Item
+			id, name, price, cuisine, description, offeredPrice, isEnabled, imageInfo
+		Admin
+			id, username, password
+		User
+			id, username, password, email, contact
+		CartDetails
+			id, userId, price, List<FoodItem>
+		Orders
+			id, userId, status, List<FoodItem>, price
+
+		OrderStatus
+			id, deliveryStatus, orderAmount
+
+		AdminController("/admin")
+			POST -> "/register" -> Admin
+			POST -> "/login"
+			GET -> "/admins"
+			GET -> "/admin/{id}"
+			GET -> "/admin/name/{name}"
+
+		FoodItemController("/foods")
+			POST -> "/addCuisines"(Cuisine) -> adds the Cuisine
+			DELETE -> "/removeCuisines" -> remove the Cuisine
+			POST -> "/addFoodItem"(FoodItem) -> adds the food item
+			DELETE -> "/deleteFoodItem"(FoodItem) -> remove the food item
+			PUT ->"/editFoodItem"(FoodItem) -> edits the food item and saves it back
+			PUT -> toogleFoodItemAvailablity ->"/enableOrDisable"(FoodItem, toggleValue) -> change the availability of the food
+			GET -> "search/{foodName}"
+			GET -> "search/cuisine/{cusineName}/{foodName}"
+			GET -> "search/price/{price}/{foodName}"
+			POST -> "addFoodItemsToCart/userId" FoodItem
+			GET ->"/orders/{userId}"
+
+		UserController
+			POST -> "/register" -> User
+			POST -> "/login"
+			GET -> "/users"
+			GET -> "/users/{id}"
+			GET -> "/users/name/{name}"
+
+		Note:- There's always room to add changes for the above..
+		Ex:- Adding Searching
+				Filtering
+				Payment Option
+				Category
+
+
+		Spring Security
+			-> Allow user or not based on the filters
+				-> admin
+						-> addCuisines
+						-> removeCuisines
+						-> addFoodItem
+						-> deleteFoodItem
+						-> editFoodItem
+						-> toogleFoodItemAvailablity
+				-> user
+						 -> "search/{foodName}"
+						 -> "search/cuisine/{cusineName}/{foodName}"
+						 -> "search/price/{price}/{foodName}"
+						 -> "addFoodItemsToCart/userId" FoodItem
+						 ->"/orders/{userId}"
