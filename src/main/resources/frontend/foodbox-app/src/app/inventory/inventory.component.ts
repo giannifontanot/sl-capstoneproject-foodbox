@@ -4,6 +4,8 @@ import {IFood} from "../model/food";
 import {Subscription} from "rxjs";
 import {InventoryService} from "./inventory.service";
 import {Router} from "@angular/router";
+import {NotificationService} from "../notification/notification.service";
+import {LoginService} from "../login/login.service";
 
 @Component({
     selector: 'ks-inventory',
@@ -25,7 +27,10 @@ export class InventoryComponent implements OnInit {
 
     constructor(private formBuilder: UntypedFormBuilder,
                 private inventoryService: InventoryService,
-                private router: Router) {
+                private router: Router,
+                private loginService: LoginService,
+                private notificationService: NotificationService
+    ) {
     }
 
     onSubmit(): void {
@@ -47,7 +52,7 @@ export class InventoryComponent implements OnInit {
     }
 
     onDelete(item: IFood) {
-        this.inventoryService.deleteItem(item.foodId).subscribe({
+        this.inventoryService.deleteItem(item.id).subscribe({
             next: (data) => {
                 const deleteOp = JSON.parse(JSON.stringify(data))
                 let retVal = deleteOp.return

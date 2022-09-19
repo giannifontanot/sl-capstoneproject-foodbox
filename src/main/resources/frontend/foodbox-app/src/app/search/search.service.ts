@@ -13,7 +13,7 @@ import {NotificationService} from "../notification/notification.service";
 })
 export class SearchService {
     // foodUrl: string = 'api/foods.json';
-    foodUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/foods';
+    foodUrl: string = 'http://localhost:8080/food/getAllFoods';
     postPurchaseUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/purchase';
     cart: IFood[] = [];
     order!: IOrder;
@@ -59,7 +59,7 @@ export class SearchService {
 
     removeItem(food: IFood) {
 
-        let foodIdToDelete = (element: { foodId: number; }) => food.foodId === element.foodId;
+        let foodIdToDelete = (element: { id: number; }) => food.id === element.id;
 
         let index = this.cart.findIndex(foodIdToDelete)
         this.cart.splice(index, 1)
@@ -75,4 +75,3 @@ export class SearchService {
         return this.absoluteTotal;
     }
 }
-

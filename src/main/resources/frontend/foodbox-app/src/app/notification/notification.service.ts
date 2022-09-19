@@ -29,7 +29,6 @@ export class NotificationService {
                         this.toastrService.info(message.text);
                         break;
                 }
-
             }
         );
 

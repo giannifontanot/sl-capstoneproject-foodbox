@@ -1,19 +1,19 @@
-<div class="alert alert-info mb-1 p-1" role="alert">
+<div class="alert alert-secondary p-1" role="alert">
     <div class="row">
         <div class="col-4">
             <div class="p-2 container d-flex">
                 <table class="align-baseline">
                     <tr>
-                <td class="" >
+                        <td class="">
 
-                    <a href="https://github.com/giannifontanot/simplilearn-kitchen-story" target="new">
-                        <img class='cell-gray github-image' alt="GitHub Repo"
-                             src="assets/images/github.jpg" />
-                    </a>
-                    </td>
-                    <span>
-                    <a href="https://github.com/giannifontanot/simplilearn-kitchen-story" target="new">
-                        /giannifontanot<br />/simplilearn-kitchen-story
+                            <a href="https://github.com/giannifontanot/sl-capstoneproject-foodbox" target="new">
+                                <img class='cell-gray github-image' alt="GitHub Repo"
+                                     src="assets/images/github.jpg"/>
+                            </a>
+                        </td>
+                        <span>
+                    <a href="https://github.com/giannifontanot/sl-capstoneproject-foodbox" target="new">
+                        /giannifontanot<br/>/sl-capstoneproject-foodbox
                     </a>
                 </span>
                     </tr>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-4">
             <h1 class='text-center'>
-                <span class="badge bg-info">Kitchen <span class="badge bg-warning">Story</span></span>
+                <span class="badge bg-warning">F o o d <span class="badge bg-danger">B O X</span></span>
             </h1>
 
         </div>
@@ -30,7 +30,7 @@
         <div class="col-4 align-middle">
             <div class="container d-flex justify-content-end">
                 <div class="p-2 align-baseline">
-                <span style="color:#A0A0A0;">Java Full Stack Bootcamp<br/>Gianni Fontanot - Angular</span>
+                    <span style="color:#A0A0A0;">Java Full Stack Bootcamp<br/>Gianni Fontanot - Angular</span>
                 </div>
             </div>
         </div>
@@ -40,22 +40,22 @@
 <div class="row" style="min-height: 100vh">
     <div class="col-2 d-flex justify-content-end">
         <div aria-orientation="vertical" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-            <a [routerLink]="['/demo']" class='nav-link cell-gray' routerLinkActive='active'>
-                <i aria-hidden="true" class="fa fa-search"></i>&nbsp;&nbsp;DEMO</a>
-            <a [routerLink]="['/search']" class='nav-link cell-gray' routerLinkActive='active'>
-                <i aria-hidden="true" class="fa fa-search"></i>&nbsp;&nbsp;Search</a>
-            <a [routerLink]="['/cart']" class='nav-link cell-gray' routerLinkActive='active'>
-                <i aria-hidden="true" class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Cart&nbsp;
-                <!--
-                <span class="badge bg-danger">4</span>
-                -->
+            <a [routerLink]="['/demo']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
+                                                                                                 class="fa fa-search"></i>&nbsp;&nbsp;DEMO</a>
+            <a [routerLink]="['/search']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
+                                                                                                   class="fa fa-search"></i>&nbsp;&nbsp;Search</a>
+            <a [routerLink]="['/cart']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
+                                                                                                 class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Cart
             </a>
-            <a [routerLink]="['/checkout']" class='nav-link cell-gray' routerLinkActive='active'>
-                <i aria-hidden="true" class="fa fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
-            <a [routerLink]="['/login']" class='nav-link cell-gray' routerLinkActive='active'>
-                <i aria-hidden="true" class="fa fa-sign-in"></i>&nbsp;&nbsp;Admin login</a>
-            <a [routerLink]="['/inventory']" class='nav-link cell-gray' routerLinkActive='active'>
-                <i aria-hidden="true" class="fa fa-list"></i>&nbsp;&nbsp;Inventory</a>
+            <a [routerLink]="['/checkout']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
+                                                                                                     class="fa fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
+            <a [routerLink]="['/login']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
+                                                                                                  class="fa fa-sign-in"></i>&nbsp;&nbsp;Admin
+                login</a>
+            <div *ngIf="accountService.isAdmin">
+                <a [routerLink]="['/inventory']" class='nav-link cell-gray' routerLinkActive='active'> <i
+                        aria-hidden="true" class="fa fa-list"></i>&nbsp;&nbsp;Inventory</a>
+            </div>
         </div>
     </div>
 

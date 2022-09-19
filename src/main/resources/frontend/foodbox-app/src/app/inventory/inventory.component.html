@@ -1,14 +1,16 @@
+<div class="container">
 <div *ngIf="admin==true;else other_content">
     <div class="card-body">
         <div class="row cell">
-            <div class="cell col-2"></div>
-            <div class="cell col-7">
-                <div class="row cell bg-light border rounded p-1">
-                    <div class="cell col-2 bg-gray"></div>
-                    <div class="cell col-1"></div>
-                    <div class="cell col-6">Food Name</div>
-                    <div class="cell col-2">Price</div>
-                    <div class="cell col-1"></div>
+            <div class="cell col-12">
+                <div class="row bg-light border rounded p-1">
+                    <div class="cell col-1 bg-gray"></div>
+                    <div class="cell col-1 text-center">ID</div>
+                    <div class="cell col-2">Food Name</div>
+                    <div class="cell col-1">Cuisine</div>
+                    <div class="cell col-4">Description</div>
+                    <div class="cell col-2">Image</div>
+                    <div class="cell col-1">Price</div>
                 </div>
                 <form (ngSubmit)="onSubmit()" [formGroup]="inventoryGroup">
                     <div class="row cell p-2">
@@ -32,18 +34,19 @@
                     </div>
                 </form>
 
+
                 <div *ngFor="let item of foods" class="row cell border rounded p-1">
-                    <div class="cell col-2">
+                    <div class="cell col-1">
                         <button (click)="onDelete(item)" class="btn btn-outline-danger btn-sm">Delete</button>
                     </div>
-                    <div class="cell col-1">{{item.foodId}}</div>
-                    <div class="cell col-6">{{item.foodName}}</div>
-                    <div class="cell col-2">{{item.price|currency}}</div>
-                    <div class="cell col-1"></div>
+                    <div class="col-1 text-center">{{item.id}}</div>
+                    <div class="col-2">{{item.foodName}}</div>
+                    <div class="col-1">{{item.cuisine}}</div>
+                    <div class="col-4">{{item.description}}</div>
+                    <div class="col-2"><img src="http://{{item.imageUrl}}" alt="Dish" width="150px"/></div>
+                    <div class="col-1">{{item.price|currency}}</div>
                 </div>
-
             </div>
-            <div class="cell col-3"></div>
         </div>
     </div>
 </div>
@@ -59,3 +62,4 @@
         </div>
     </div>
 </ng-template>
+</div>

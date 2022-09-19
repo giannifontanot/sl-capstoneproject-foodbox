@@ -181,7 +181,7 @@ BackEnd :-
 
 
 		Spring Security
-			-> Allow user or not based on the filters
+			-> Allow user or not based on the filtersn
 				-> admin
 						-> addCuisines
 						-> removeCuisines

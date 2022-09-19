@@ -6,9 +6,10 @@ import {catchError, tap} from "rxjs/operators";
 @Injectable({
     providedIn: 'root'
 })
-export class LoginService {
+ export class LoginService {
     userUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/users';
     putUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/users/';
+    isAdmin: boolean = false;
 
     constructor(private http: HttpClient) {
     }

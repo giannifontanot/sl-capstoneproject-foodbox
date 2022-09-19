@@ -1,7 +1,11 @@
 export interface IFood {
-  foodId: number;
+  id: number;
   foodName: string;
   price: number;
+  cuisine: string;
+  description: string;
+  isEnabled: string;
+  imageUrl: string;
 }
 
 

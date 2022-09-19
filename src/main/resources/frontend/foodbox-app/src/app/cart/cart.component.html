@@ -1,29 +1,34 @@
-<div class="card">
-    <div class="card-body">
-        <div class="row cell">
-            <div class="cell col-2"></div>
-            <div class="cell col-7">
-                <div class="row cell bg-light border rounded p-1">
-                    <div class="cell col-2 bg-gray"></div>
-                    <div class="cell col-1">ID</div>
-                    <div class="cell col-6">Food Name</div>
-                    <div class="cell col-2">Price</div>
-                    <div class="cell col-1"></div>
-                </div>
-                <div *ngFor="let food of cart" class="row cell border rounded p-1">
-                    <div class="cell col-2 bg-gray">
-                        <button (click)="removeItem(food)" class="btn btn-outline-danger btn-sm">
-                            delete
-                        </button>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row cell">
+
+
+                <div class="col-12">
+                    <div class="row bg-light border rounded p-1">
+                        <div class="cell col-1 bg-gray"></div>
+                        <div class="cell col-1 text-center">ID</div>
+                        <div class="cell col-2">Food Name</div>
+                        <div class="cell col-1">Cuisine</div>
+                        <div class="cell col-4">Description</div>
+                        <div class="cell col-2">Image</div>
+                        <div class="cell col-1">Price</div>
                     </div>
-                    <div class="cell col-1">{{food.foodId}}</div>
-                    <div class="cell col-6">{{food.foodName}}</div>
-                    <div class="cell col-2">{{food.price|currency}}</div>
-                    <div class="cell col-1"></div>
+                    <div *ngFor="let food of cart" class="row cell border rounded p-1">
+                        <div class="cell col-1 bg-gray">
+                            <button (click)="removeItem(food)" class="btn btn-outline-danger btn-sm">
+                                delete
+                            </button>
+                        </div>
+                        <div class="col-1 text-center">{{food.id}}</div>
+                        <div class="col-2">{{food.foodName}}</div>
+                        <div class="col-1">{{food.cuisine}}</div>
+                        <div class="col-4">{{food.description}}</div>
+                        <div class="col-2"><img src="http://{{food.imageUrl}}" alt="Dish" width="150px"/></div>
+                        <div class="col-1">{{food.price|currency}}</div>
+                    </div>
+                    <p *ngIf="cart.length<=0" class="card-text text-center mt-4"> - empty - </p>
                 </div>
-                <p *ngIf="cart.length<=0" class="card-text text-center mt-4"> - empty - </p>
             </div>
-            <div class="cell col-3"></div>
         </div>
     </div>
-</div>

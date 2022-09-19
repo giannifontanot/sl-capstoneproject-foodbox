@@ -8,7 +8,7 @@
             a list of the items. You can come back to this page to add more items to your cart if
             you want.</p>
     </div>
-    <div class="row pb-3 pt-3">
+    <div class="row pb-3 pt-3 ">
         <div class="col-3"></div>
         <div class="col-5 ">
             <input [(ngModel)]="listFilter" class="form-control" placeholder="What are you looking for?" type="text">
@@ -20,26 +20,28 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-2 "></div>
-            <div class="col-7 ">
+            <div class="col-12">
                 <div class="row bg-light border rounded p-1">
-                    <div class="col-2 bg-gray"></div>
-                    <div class="col-2 text-center">ID</div>
-                    <div class="col-5">Food Name</div>
-                    <div class="col-2">Price</div>
-                    <div class="col-1"></div>
+                    <div class="cell col-1 bg-gray"></div>
+                    <div class="cell col-1 text-center">ID</div>
+                    <div class="cell col-2">Food Name</div>
+                    <div class="cell col-1">Cuisine</div>
+                    <div class="cell col-4">Description</div>
+                    <div class="cell col-2">Image</div>
+                    <div class="cell col-1">Price</div>
                 </div>
                 <div *ngFor="let food of foodsFiltered" class="row border rounded p-1">
-                    <div class="col-2 bg-gray">
+                    <div class="col-1 bg-gray">
                         <button (click)="select(food)" class="btn btn-outline-primary btn-sm">select</button>
                     </div>
-                    <div class="col-2 text-center">{{food.foodId}}</div>
-                    <div class="col-5">{{food.foodName}}</div>
-                    <div class="col-2">{{food.price|currency}}</div>
-                    <div class="col-1"></div>
+                    <div class="col-1 text-center">{{food.id}}</div>
+                    <div class="col-2">{{food.foodName}}</div>
+                    <div class="col-1">{{food.cuisine}}</div>
+                    <div class="col-4">{{food.description}}</div>
+                    <div class="col-2"><img src="http://{{food.imageUrl}}" alt="Dish" width="150px"/></div>
+                    <div class="col-1">{{food.price|currency}}</div>
                 </div>
             </div>
-            <div class="col-3 "></div>
         </div>
     </div>
 </div>
