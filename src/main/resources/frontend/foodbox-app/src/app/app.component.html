@@ -1,19 +1,19 @@
-<div class="alert alert-secondary p-1" role="alert">
+<div class="alert alert-secondary p-1" role="alert" style="margin-bottom: 0px">
     <div class="row">
         <div class="col-4">
             <div class="p-2 container d-flex">
                 <table class="align-baseline">
-                    <tr>
+                    <tr class="align-baseline">
                         <td class="">
 
                             <a href="https://github.com/giannifontanot/sl-capstoneproject-foodbox" target="new">
                                 <img class='cell-gray github-image' alt="GitHub Repo"
                                      src="assets/images/github.jpg"/>
-                            </a>
+                            </a>&nbsp;
                         </td>
                         <span>
-                    <a href="https://github.com/giannifontanot/sl-capstoneproject-foodbox" target="new">
-                        /giannifontanot<br/>/sl-capstoneproject-foodbox
+                    <a href="https://github.com/giannifontanot/sl-capstone-foodbox" target="new">
+                        /giannifontanot/sl-capstone-foodbox
                     </a>
                 </span>
                     </tr>
@@ -22,7 +22,8 @@
         </div>
         <div class="col-4">
             <h1 class='text-center'>
-                <span class="badge bg-warning">F o o d <span class="badge bg-danger">B O X</span></span>
+                <span class="badge bg-warning shadow1" >F o o d
+                    <span class="badge bg-danger shadow2">B O X</span></span>
             </h1>
 
         </div>
@@ -36,32 +37,75 @@
         </div>
     </div>
 </div>
+<div *ngIf="getLoginService().loggedIn; else loggedOut">
+    <div class="row" style="margin-bottom: 1rem;">
+            <span class="badge" [ngClass]="getUsernameClass()">Welcome {{getUsername()}} {{getUsernameProfile()}}</span>
 
-<div class="row" style="min-height: 100vh">
-    <div class="col-2 d-flex justify-content-end">
-        <div aria-orientation="vertical" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-            <a [routerLink]="['/demo']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
-                                                                                                 class="fa fa-search"></i>&nbsp;&nbsp;DEMO</a>
-            <a [routerLink]="['/search']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
-                                                                                                   class="fa fa-search"></i>&nbsp;&nbsp;Search</a>
-            <a [routerLink]="['/cart']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
-                                                                                                 class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Cart
-            </a>
-            <a [routerLink]="['/checkout']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
-                                                                                                     class="fa fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
-            <a [routerLink]="['/login']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
-                                                                                                  class="fa fa-sign-in"></i>&nbsp;&nbsp;Admin
-                login</a>
-            <div *ngIf="accountService.isAdmin">
-                <a [routerLink]="['/inventory']" class='nav-link cell-gray' routerLinkActive='active'> <i
-                        aria-hidden="true" class="fa fa-list"></i>&nbsp;&nbsp;Inventory</a>
+    </div>
+    <div class="row" style="min-height: 100vh">
+        <div class="col-2 d-flex justify-content-end">
+            <div aria-orientation="vertical" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                <a [routerLink]="['/demo']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
+                                                                                                     class="fa fa-search"></i>&nbsp;&nbsp;DEMO</a>
+                <a [routerLink]="['/search']" class='nav-link cell-gray' routerLinkActive='active'> <i
+                        aria-hidden="true"
+                        class="fa fa-search"></i>&nbsp;&nbsp;Search</a>
+                <a [routerLink]="['/cart']" class='nav-link cell-gray' routerLinkActive='active'> <i
+                        aria-hidden="true" class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Cart
+                </a>
+                <a [routerLink]="['/checkout']" class='nav-link cell-gray' routerLinkActive='active'> <i
+                        aria-hidden="true"
+                        class="fa fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
+                <a [routerLink]="['/login']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
+                                                                                                      class="fa fa-sign-in"></i>&nbsp;&nbsp;Admin
+                    login</a>
+                <div>
+                    <a [routerLink]="['/inventory']" class='nav-link cell-gray' routerLinkActive='active'> <i
+                            aria-hidden="true" class="fa fa-list"></i>&nbsp;&nbsp;Inventory</a>
+                </div>
             </div>
         </div>
-    </div>
 
-
-    <div class="col-10">
-        <router-outlet></router-outlet>
+        <div class="col-10">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
+
+<ng-template #loggedOut>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    Welcome!
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Admin Login</h5>
+
+                    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" formControlName="username" id="username" placeholder="username"
+                                   type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" formControlName="password" id="password" placeholder="password"
+                                   type="password">
+                        </div>&nbsp;
+
+                        <div class="row">
+                            <div class="col-6 d-flex justify-content-start">
+
+                                <button class="btn btn-primary" type="submit">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</ng-template>
 

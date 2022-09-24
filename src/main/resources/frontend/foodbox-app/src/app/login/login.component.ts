@@ -12,9 +12,8 @@ import {InventoryService} from "../inventory/inventory.service";
 export class LoginComponent implements OnInit {
 
     loginForm = this.formBuilder.group({
-        id: '1',
-        username: 'admin',
-        password: 'xadminw'
+        username: 'yomerito',
+        password: 'notiene'
 
     })
 
@@ -31,11 +30,11 @@ export class LoginComponent implements OnInit {
         this.loginService.submitLogin(this.loginForm.value).subscribe(
             {
                 next: (data) => {
-                    console.log(data)
+                    console.log("component:" + data)
                     this.inventoryService.admin = true;
                     this.router.navigate(["/inventory"])
                 },
-                error: (err => console.log(err))
+                error: (err => console.log("ERROR: "+err))
             }
         )
     }

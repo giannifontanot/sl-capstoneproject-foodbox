@@ -7,19 +7,39 @@ import {catchError, tap} from "rxjs/operators";
     providedIn: 'root'
 })
  export class LoginService {
-    userUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/users';
+    userUrl: string = 'http://localhost:8080/login';
     putUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/users/';
-    isAdmin: boolean = false;
+    private isAdmin: boolean = false;
+    private isLoggedIn: boolean = false;
 
     constructor(private http: HttpClient) {
     }
 
+    set admin(isAdmin:boolean){
+        this.isAdmin = isAdmin;
+    }
+
+    get admin():boolean{
+        return this.isAdmin;
+    }
+
+    set loggedIn(isLoggedIn:boolean){
+        this.isLoggedIn = isLoggedIn;
+    }
+
+    get loggedIn():boolean{
+        return this.isLoggedIn;
+    }
+
+
     submitLogin(formValue: any): Observable<any> {
-        return this.http.post(this.userUrl, formValue).pipe(
-            tap(data => data),
+        return this.http.post(this.userUrl, formValue,{responseType: 'text' }).pipe(
+            tap(data => {
+                console.log("result is: "+data)
+
+            }),
             catchError(err => this.handleError(err))
         )
-
     }
 
     changePassword(formValue: any): Observable<any> {

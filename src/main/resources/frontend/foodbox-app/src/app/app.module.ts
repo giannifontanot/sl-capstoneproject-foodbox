@@ -14,7 +14,6 @@ import {ChangeComponent} from './login/change.component';
 import {DemoComponent} from './demo/demo.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from 'ngx-toastr';
-import { MenuComponent } from './menu/menu/menu.component';
 
 @NgModule({
     declarations: [
@@ -26,8 +25,7 @@ import { MenuComponent } from './menu/menu/menu.component';
         InventoryComponent,
         PurchaseComponent,
         ChangeComponent,
-        DemoComponent,
-        MenuComponent
+        DemoComponent
     ],
     imports: [
         BrowserModule,

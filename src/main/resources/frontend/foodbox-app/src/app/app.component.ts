@@ -1,20 +1,64 @@
 import {Component, OnInit} from '@angular/core';
-import {NotificationService} from "./notification/notification.service";
-import {AccountService} from "./services/account.service";
+import {LoginService} from './login/login.service';
+import {Router} from "@angular/router";
+import {UntypedFormBuilder, Validators} from '@angular/forms';
+import {IOrder} from "./model/order";
 
 
 @Component({
-    selector: 'ks-root',
+    selector: 'fb-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
 
 export class AppComponent implements OnInit {
-    pageTitle = 'Kitchen Story';
-
+    pageTitle = 'FoodBox';
     activeTab = 'search';
+    isAdmin: boolean = false;
+    isLoggedIn: boolean = false;
 
-    constructor(private accountService: AccountService) {
+    loginForm = this.formBuilder.group({
+        username: ['yomerito', Validators.required],
+        password: ['notiene', Validators.required]
+    })
+
+    constructor(private loginService: LoginService,
+                private router: Router,
+                private formBuilder: UntypedFormBuilder) {
+    }
+
+    onSubmit(): void {
+        console.log(' --> onSubmit');
+        this.loginService.submitLogin(this.loginForm.value).subscribe({
+            next: (data) => {
+                data !== "F"?this.isLoggedIn = true:this.isLoggedIn = false;
+                data === "A"?this.isAdmin = true:this.isAdmin = false;
+
+                this.getLoginService().loggedIn = this.isLoggedIn;
+                this.getLoginService().admin = this.isAdmin;
+            },
+            error: (err => console.log("ERROR: > " + err))
+        });
+    }
+
+    getLoginService(): LoginService {
+        return this.loginService;
+    }
+
+    getUsername(): string{
+
+        // @ts-ignore
+        return this.loginForm.get('username').value;
+    }
+
+    getUsernameClass(): string{
+
+        return this.getLoginService().admin?"bg-danger":"bg-warning";
+    }
+
+    getUsernameProfile(): string{
+
+        return this.getLoginService().admin?" - ADMIN":"";
     }
 
     search(activeTab: string) {
@@ -27,4 +71,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
     }
+
+
 }

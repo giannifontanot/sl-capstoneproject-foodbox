@@ -11,7 +11,7 @@
     <div class="row pb-3 pt-3 ">
         <div class="col-3"></div>
         <div class="col-5 ">
-            <input [(ngModel)]="listFilter" class="form-control" placeholder="What are you looking for?" type="text">
+
         </div>
         <div class="col-3 ps-0 ms-0">
             <button (click)="search()" class="btn btn-primary">search</button>
@@ -25,6 +25,17 @@
                     <div class="cell col-1 bg-gray"></div>
                     <div class="cell col-1 text-center">ID</div>
                     <div class="cell col-2">Food Name</div>
+                    <div class="cell col-1">Cuisine</div>
+                    <div class="cell col-4">Description</div>
+                    <div class="cell col-2">Image</div>
+                    <div class="cell col-1">Price</div>
+                </div>
+                <div class="row bg-light border rounded p-1">
+                    <div class="cell col-1 bg-gray"></div>
+                    <div class="cell col-1 text-center">&nbsp;</div>
+                    <div class="cell col-2">
+                        <input [(ngModel)]="listFilter" class="form-control" placeholder="Dish" type="text">
+                    </div>
                     <div class="cell col-1">Cuisine</div>
                     <div class="cell col-4">Description</div>
                     <div class="cell col-2">Image</div>
