@@ -35,8 +35,7 @@ import {catchError, tap} from "rxjs/operators";
     submitLogin(formValue: any): Observable<any> {
         return this.http.post(this.userUrl, formValue,{responseType: 'text' }).pipe(
             tap(data => {
-                console.log("result is: "+data)
-
+console.log("submitLogin: " + data);
             }),
             catchError(err => this.handleError(err))
         )

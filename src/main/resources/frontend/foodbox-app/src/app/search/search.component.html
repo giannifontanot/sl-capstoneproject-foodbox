@@ -2,48 +2,59 @@
     <div class="card-header">
         Our Products
     </div>
-    <div class="card-body">
-        <h5 class="card-title">This is the list of foods we offer.</h5>
-        <p class="card-text">Select the foods you would like to order. When you are done, click the Cart menu to see
+    <div class="card-body mt-3 mb-4">
+        <h5 *ngIf="!getLoginService().admin" class="card-title">This is the list of dishes we offer.</h5>
+        <h5 *ngIf="getLoginService().admin" class="card-title">Admin access to the list of dishes.</h5>
+        <p *ngIf="!getLoginService().admin" class="card-text">Select the dishes you would like to order. When you
+            are done, click the Cart menu to see
             a list of the items. You can come back to this page to add more items to your cart if
             you want.</p>
+        <p *ngIf="getLoginService().admin" class="card-text">As an Admin you can edit the dishes we offer to the
+            public. Click "edit" to modify the name, cuisine, description, image, or price of a dish. </p>
     </div>
-    <div class="row pb-3 pt-3 ">
-        <div class="col-3"></div>
-        <div class="col-5 ">
 
-        </div>
-        <div class="col-3 ps-0 ms-0">
-            <button (click)="search()" class="btn btn-primary">search</button>
-
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="row bg-light border rounded p-1">
-                    <div class="cell col-1 bg-gray"></div>
-                    <div class="cell col-1 text-center">ID</div>
-                    <div class="cell col-2">Food Name</div>
-                    <div class="cell col-1">Cuisine</div>
-                    <div class="cell col-4">Description</div>
-                    <div class="cell col-2">Image</div>
-                    <div class="cell col-1">Price</div>
+                    <div class="col-1 bg-gray"></div>
+                    <div class="col-1 text-center">&nbsp;</div>
+                    <div class="col-2">Dish Name</div>
+                    <div class="col-1">Cuisine</div>
+                    <div class="col-4">Description</div>
+                    <div class="col-2">&nbsp;</div>
+                    <div class="col-1">Price</div>
                 </div>
-                <div class="row bg-light border rounded p-1">
-                    <div class="cell col-1 bg-gray"></div>
-                    <div class="cell col-1 text-center">&nbsp;</div>
-                    <div class="cell col-2">
-                        <input [(ngModel)]="listFilter" class="form-control" placeholder="Dish" type="text">
+                <div class="row alert-info border rounded p-1">
+                    <div class="col-1 "></div>
+                    <div class="col-1 text-center">&nbsp;</div>
+                    <div class="col-2">
+                        <input [(ngModel)]="dishFilter" class="form-control" placeholder="Filter by Dish" type="text">
                     </div>
-                    <div class="cell col-1">Cuisine</div>
-                    <div class="cell col-4">Description</div>
-                    <div class="cell col-2">Image</div>
-                    <div class="cell col-1">Price</div>
+                    <div class="col-1">
+                        <input [(ngModel)]="cuisineFilter" class="form-control" placeholder="Cuisine" type="text">
+
+                    </div>
+                    <div class="col-4">
+                        <input [(ngModel)]="descriptionFilter" class="form-control" placeholder="Filter by Description"
+                               type="text">
+                    </div>
+                    <div class="col-2">&nbsp;</div>
+                    <div class="col-1" style="display: inline-block">
+                        <input [(ngModel)]="priceFilter" class="form-control" placeholder="Price"
+                               type="number">
+                    </div>
                 </div>
                 <div *ngFor="let food of foodsFiltered" class="row border rounded p-1">
-                    <div class="col-1 bg-gray">
-                        <button (click)="select(food)" class="btn btn-outline-primary btn-sm">select</button>
+                    <div class="col-1">
+                        <button *ngIf="!getLoginService().admin" (click)="select(food)"
+                                class="btn btn-outline-primary btn-sm alert-secondary ">
+                            select
+                        </button>
+                        <button *ngIf="getLoginService().admin" (click)="select(food)"
+                                class="btn btn-outline-primary btn-sm alert-secondary ">
+                            edit
+                        </button>
                     </div>
                     <div class="col-1 text-center">{{food.id}}</div>
                     <div class="col-2">{{food.foodName}}</div>

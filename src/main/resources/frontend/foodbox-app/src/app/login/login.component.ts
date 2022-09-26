@@ -12,7 +12,7 @@ import {InventoryService} from "../inventory/inventory.service";
 export class LoginComponent implements OnInit {
 
     loginForm = this.formBuilder.group({
-        username: 'yomerito',
+        username: 'admin',
         password: 'notiene'
 
     })

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginService} from './login/login.service';
 import {Router} from "@angular/router";
 import {UntypedFormBuilder, Validators} from '@angular/forms';
-import {IOrder} from "./model/order";
+import {IOrden} from "./model/orden";
 
 
 @Component({
@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log(' --> onSubmit');
         this.loginService.submitLogin(this.loginForm.value).subscribe({
             next: (data) => {
                 data !== "F"?this.isLoggedIn = true:this.isLoggedIn = false;
@@ -53,7 +52,7 @@ export class AppComponent implements OnInit {
 
     getUsernameClass(): string{
 
-        return this.getLoginService().admin?"bg-danger":"bg-warning";
+        return this.getLoginService().admin?"bg-danger text-light":"bg-warning text-light";
     }
 
     getUsernameProfile(): string{

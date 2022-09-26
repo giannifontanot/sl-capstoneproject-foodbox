@@ -7,13 +7,15 @@ import {SearchComponent} from './search/search.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CartComponent} from './cart/cart.component';
-import {CheckoutComponent} from './cart/checkout.component';
+import {CheckoutComponent} from './checkout/checkout.component';
 import {InventoryComponent} from './inventory/inventory.component';
-import {PurchaseComponent} from './cart/purchase.component';
+import {PurchaseComponent} from './purchase/purchase.component';
 import {ChangeComponent} from './login/change.component';
 import {DemoComponent} from './demo/demo.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from 'ngx-toastr';
+import { OrdenComponent } from './orden/orden.component';
+import { LogoutComponent } from './login/logout.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +27,9 @@ import {ToastrModule} from 'ngx-toastr';
         InventoryComponent,
         PurchaseComponent,
         ChangeComponent,
-        DemoComponent
+        DemoComponent,
+        OrdenComponent,
+        LogoutComponent
     ],
     imports: [
         BrowserModule,
@@ -36,12 +40,13 @@ import {ToastrModule} from 'ngx-toastr';
             {path: '', component: SearchComponent},
             {path: 'demo', component: DemoComponent},
             {path: 'search', component: SearchComponent},
-            {path: 'login', component: LoginComponent},
+            {path: 'ordens', component: OrdenComponent},
             {path: 'inventory', component: InventoryComponent},
             {path: 'cart', component: CartComponent},
             {path: 'checkout', component: CheckoutComponent},
             {path: 'purchase', component: PurchaseComponent},
-            {path: 'changePassword', component: ChangeComponent},
+            {path: 'logout', component: LogoutComponent},
+            {path: 'login', component: AppComponent},
         ]),
         FormsModule,
         ReactiveFormsModule

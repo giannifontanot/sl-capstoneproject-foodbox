@@ -7,7 +7,7 @@
                         <td class="">
 
                             <a href="https://github.com/giannifontanot/sl-capstoneproject-foodbox" target="new">
-                                <img class='cell-gray github-image' alt="GitHub Repo"
+                                <img class="cell-gray github-image shadow-0" alt="GitHub Repo"
                                      src="assets/images/github.jpg"/>
                             </a>&nbsp;
                         </td>
@@ -22,8 +22,8 @@
         </div>
         <div class="col-4">
             <h1 class='text-center'>
-                <span class="badge bg-warning shadow1" >F o o d
-                    <span class="badge bg-danger shadow2">B O X</span></span>
+                <span class="badge bg-warning shadow-1">F o o d
+                    <span class="badge bg-danger shadow-2">B O X</span></span>
             </h1>
 
         </div>
@@ -39,30 +39,28 @@
 </div>
 <div *ngIf="getLoginService().loggedIn; else loggedOut">
     <div class="row" style="margin-bottom: 1rem;">
-            <span class="badge" [ngClass]="getUsernameClass()">Welcome {{getUsername()}} {{getUsernameProfile()}}</span>
+            <span class="badge text-embossed shadow-0" [ngClass]="getUsernameClass()">Welcome {{getUsername()}}
+                {{getUsernameProfile()}}</span>
 
     </div>
     <div class="row" style="min-height: 100vh">
         <div class="col-2 d-flex justify-content-end">
             <div aria-orientation="vertical" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                <a [routerLink]="['/demo']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
-                                                                                                     class="fa fa-search"></i>&nbsp;&nbsp;DEMO</a>
-                <a [routerLink]="['/search']" class='nav-link cell-gray' routerLinkActive='active'> <i
-                        aria-hidden="true"
-                        class="fa fa-search"></i>&nbsp;&nbsp;Search</a>
-                <a [routerLink]="['/cart']" class='nav-link cell-gray' routerLinkActive='active'> <i
-                        aria-hidden="true" class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Cart
-                </a>
-                <a [routerLink]="['/checkout']" class='nav-link cell-gray' routerLinkActive='active'> <i
-                        aria-hidden="true"
-                        class="fa fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
-                <a [routerLink]="['/login']" class='nav-link cell-gray' routerLinkActive='active'> <i aria-hidden="true"
-                                                                                                      class="fa fa-sign-in"></i>&nbsp;&nbsp;Admin
-                    login</a>
-                <div>
-                    <a [routerLink]="['/inventory']" class='nav-link cell-gray' routerLinkActive='active'> <i
-                            aria-hidden="true" class="fa fa-list"></i>&nbsp;&nbsp;Inventory</a>
-                </div>
+                <a [routerLink]="['/demo']" class='nav-link cell-gray shadow-0' routerLinkActive='active'>
+                    <i aria-hidden="true" class="fa fa-search"></i>&nbsp;&nbsp;DEMO</a>
+                <a [routerLink]="['/search']" class='nav-link cell-gray shadow-0' routerLinkActive='active'>
+                    <i aria-hidden="true" class="fa fa-search"></i>&nbsp;&nbsp;Search</a>
+                <a  *ngIf="!getLoginService().admin" [routerLink]="['/cart']" class='nav-link cell-gray shadow-0'
+                    routerLinkActive='active'>
+                    <i aria-hidden="true" class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a>
+                <a  *ngIf="!getLoginService().admin" [routerLink]="['/checkout']" class='nav-link cell-gray shadow-0'
+                    routerLinkActive='active'>
+                    <i aria-hidden="true" class="fa fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
+                <a  *ngIf="!getLoginService().admin" [routerLink]="['/ordens']" class='nav-link cell-gray shadow-0'
+                    routerLinkActive='active'>
+                    <i aria-hidden="true" class="fa fa-edit"></i>&nbsp;&nbsp;Orders</a>
+                <a [routerLink]="['/logout']" class='nav-link cell-gray shadow-0' routerLinkActive='active'>
+                    <i aria-hidden="true" class="fa fa-sign-in"></i>&nbsp;&nbsp;Logout</a>
             </div>
         </div>
 
@@ -73,10 +71,11 @@
 </div>
 
 <ng-template #loggedOut>
+    &nbsp;
     <div class="row">
         <div class="col-2"></div>
         <div class="col-6">
-            <div class="card">
+            <div class="card shadow-0">
                 <div class="card-header">
                     Welcome!
                 </div>

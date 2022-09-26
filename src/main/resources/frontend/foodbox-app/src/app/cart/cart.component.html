@@ -1,34 +1,37 @@
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            <div class="row cell">
 
-
-                <div class="col-12">
-                    <div class="row bg-light border rounded p-1">
-                        <div class="cell col-1 bg-gray"></div>
-                        <div class="cell col-1 text-center">ID</div>
-                        <div class="cell col-2">Food Name</div>
-                        <div class="cell col-1">Cuisine</div>
-                        <div class="cell col-4">Description</div>
-                        <div class="cell col-2">Image</div>
-                        <div class="cell col-1">Price</div>
-                    </div>
-                    <div *ngFor="let food of cart" class="row cell border rounded p-1">
-                        <div class="cell col-1 bg-gray">
-                            <button (click)="removeItem(food)" class="btn btn-outline-danger btn-sm">
-                                delete
-                            </button>
-                        </div>
-                        <div class="col-1 text-center">{{food.id}}</div>
-                        <div class="col-2">{{food.foodName}}</div>
-                        <div class="col-1">{{food.cuisine}}</div>
-                        <div class="col-4">{{food.description}}</div>
-                        <div class="col-2"><img src="http://{{food.imageUrl}}" alt="Dish" width="150px"/></div>
-                        <div class="col-1">{{food.price|currency}}</div>
-                    </div>
-                    <p *ngIf="cart.length<=0" class="card-text text-center mt-4"> - empty - </p>
-                </div>
-            </div>
-        </div>
+<div class="card">
+    <div class="card-header">
+        Your Cart
     </div>
+    <div class="card-body mt-3 mb-4">
+        <h5 class="card-title">Following is a detailed list of your orders</h5>
+        <p class="card-text">Thank you for shopping with us. Please review your orders and their status. When it is
+            ready you can pick it up in the front. Enjoy your meal!</p>
+    </div>
+
+    <div class="container">
+        <div class="row bg-light border rounded p-1">
+            <div class="col-1 bg-gray"></div>
+            <div class="col-1 text-center">&nbsp;</div>
+            <div class="col-2">Food Name</div>
+            <div class="col-1">Cuisine</div>
+            <div class="col-4">Description</div>
+            <div class="col-2">&nbsp;</div>
+            <div class="col-1">Price</div>
+        </div>
+        <div class="row" *ngFor="let food of cart" class="row border rounded p-1">
+            <div class="col-1 bg-gray">
+                <button (click)="removeItem(food)" class="btn btn-outline-danger btn-sm alert-danger">
+                    delete
+                </button>
+            </div>
+            <div class="col-1 text-center">{{food.id}}</div>
+            <div class="col-2">{{food.foodName}}</div>
+            <div class="col-1">{{food.cuisine}}</div>
+            <div class="col-4">{{food.description}}</div>
+            <div class="col-2"><img src="http://{{food.imageUrl}}" alt="Dish" width="150px"/></div>
+            <div class="col-1">{{food.price|currency}}</div>
+        </div>
+        <p *ngIf="cart.length<=0" class="card-text text-center mt-4"> - empty - </p>
+    </div>
+</div>

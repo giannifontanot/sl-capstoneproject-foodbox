@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {SearchService} from "../search/search.service";
-import {IClient} from "../model/client";
+import {IUser} from "../model/user";
 import {IFood} from "../model/food";
 
 @Component({
@@ -11,7 +11,7 @@ import {IFood} from "../model/food";
 })
 export class PurchaseComponent implements OnInit {
 
-    client!: IClient;
+    user!: IUser;
     cart!: IFood[];
     absoluteTotal: number = 0;
 
@@ -20,8 +20,8 @@ export class PurchaseComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.client = this.searchService.order.client
-        this.cart = this.searchService.order.cart
+        this.user = this.searchService.orden.user
+        this.cart = this.searchService.orden.cart
         this.absoluteTotal = this.searchService.absoluteTotal
     }
 

@@ -12,8 +12,8 @@
                 <form (ngSubmit)="onSubmit()" [formGroup]="checkoutForm">
 
                     <div class="mb-2">
-                        <label class="form-label mb-1" for="name">Name</label>
-                        <input class="form-control" formControlName="name" id="name" placeholder="name" type="text">
+                        <label class="form-label mb-1" for="username">Name</label>
+                        <input class="form-control" formControlName="username" id="username" placeholder="name" type="text">
                     </div>
                     <div class="mb-2">
                         <label class="form-label mb-1" for="address">Address</label>
@@ -25,13 +25,13 @@
                         <input class="form-control"
                                formControlName="credit"
                                id="credit"
-                               placeholder="0000-0000-0000-0000"
+                               placeholder="No worries, it's on the house!"
                                type="text">
                     </div>
 
                     <div>
-                        <button class="btn btn-primary" type="submit">Purchase</button>
-                        <img alt="credit card" src="assets/images/we_accept.png" width="70%"/>
+                        <button class="btn btn-primary" type="submit">Place Your Order</button>
+                        <img alt="credit card" src="../../assets/images/we_accept.png" width="70%"/>
                     </div>
                 </form>
             </div>

@@ -3,7 +3,7 @@ import {IFood} from "../model/food";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
-import {IOrder} from "../model/order";
+import {IOrden} from "../model/orden";
 import {NotificationType} from "../notification/notification.message";
 import {NotificationService} from "../notification/notification.service";
 
@@ -16,7 +16,7 @@ export class SearchService {
     foodUrl: string = 'http://localhost:8080/food/getAllFoods';
     postPurchaseUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/purchase';
     cart: IFood[] = [];
-    order!: IOrder;
+    orden!: IOrden;
     absoluteTotal: number = 0;
 
     constructor(private http: HttpClient, private notificationService: NotificationService) {
@@ -29,8 +29,8 @@ export class SearchService {
         );
     }
 
-    postPurchase(order: any): Observable<any> {
-        return this.http.post<any>(this.postPurchaseUrl, order).pipe(
+    postPurchase(orden: any): Observable<any> {
+        return this.http.post<any>(this.postPurchaseUrl, orden).pipe(
             tap(data => console.log(JSON.stringify(data))),
             catchError(this.handleError)
         );

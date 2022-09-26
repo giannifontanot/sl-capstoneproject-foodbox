@@ -6,6 +6,13 @@
 .cell-gray {
     border: 1px solid lightgray;
     background-color: white;
+    color: black;
+}
+
+.cell-danger {
+    border: 1px solid lightgray;
+    background-color: lightgray;
+    color: black;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
@@ -16,17 +23,27 @@
     border-radius: 25px;
 }
 
-.shadow1{
+.shadow-0{
+    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0
+    rgba(0, 0, 0, 0.1);
+}
+
+.shadow-1{
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
     rgba(0, 0, 0, 0.19);
 }
 
-.shadow2{
+.shadow-2{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
     rgba(0, 0, 0, 0.19);
 }
 
-.shadow4{
+.shadow-4{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
     rgba(0, 0, 0, 0.19);
+}
+
+text-embossed{
+    color: red !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important;
 }
