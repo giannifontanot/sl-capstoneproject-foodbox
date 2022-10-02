@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
     isLoggedIn: boolean = false;
 
     loginForm = this.formBuilder.group({
-        username: ['yomerito', Validators.required],
-        password: ['notiene', Validators.required]
+        username: ['', Validators.required],
+        password: ['', Validators.required]
     })
 
     constructor(private loginService: LoginService,
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
     }
 
     onSubmit(): void {
+
         this.loginService.submitLogin(this.loginForm.value).subscribe({
             next: (data) => {
                 data !== "F"?this.isLoggedIn = true:this.isLoggedIn = false;

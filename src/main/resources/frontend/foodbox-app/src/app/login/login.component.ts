@@ -12,8 +12,8 @@ import {InventoryService} from "../inventory/inventory.service";
 export class LoginComponent implements OnInit {
 
     loginForm = this.formBuilder.group({
-        username: 'admin',
-        password: 'notiene'
+        username: '',
+        password: ''
 
     })
 

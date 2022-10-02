@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from 'ngx-toastr';
 import { OrdenComponent } from './orden/orden.component';
 import { LogoutComponent } from './login/logout.component';
+import { EditComponent } from './search/edit.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { LogoutComponent } from './login/logout.component';
         ChangeComponent,
         DemoComponent,
         OrdenComponent,
-        LogoutComponent
+        LogoutComponent,
+        EditComponent
     ],
     imports: [
         BrowserModule,
@@ -47,6 +49,7 @@ import { LogoutComponent } from './login/logout.component';
             {path: 'purchase', component: PurchaseComponent},
             {path: 'logout', component: LogoutComponent},
             {path: 'login', component: AppComponent},
+            {path: 'editFood/:id', component: EditComponent},
         ]),
         FormsModule,
         ReactiveFormsModule

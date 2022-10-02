@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {IFood} from "../model/food";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
 import {IOrden} from "../model/orden";
@@ -19,7 +19,12 @@ export class PurchaseService {
   }
 
   postPurchase(orden: IOrden): Observable<any> {
-    return this.http.post<any>(this.postPurchaseUrl, orden).pipe(
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Accept': 'application/json', 'Content-Type': 'application/json' })
+    };
+
+    return this.http.post<any>(this.postPurchaseUrl, JSON.stringify(orden), httpOptions).pipe(
         tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError)
     );
@@ -35,5 +40,4 @@ export class PurchaseService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
-
 }

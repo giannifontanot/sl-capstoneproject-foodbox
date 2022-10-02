@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                Edit Dish
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">On this screen, you edit the details of the a Dish</h5>
+
+                <p></p>
+                <form (ngSubmit)="onSubmit()" [formGroup]="editFood">
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-end" for="foodName">ID: </label>
+                        <div class="col-5">
+                            <input type="number" class="form-control" formControlName="id" id="id" value=""/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-end" for="foodName">Dish Name: </label>
+                        <div class="col-5">
+                            <input type="text" class="form-control" formControlName="foodName" id="foodName" value=""/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-end" for="cuisine">Cuisine: </label>
+                        <div class="col-5">
+                        <input type="text" class="form-control" formControlName="cuisine" id="cuisine" value=""/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-end" for="description">description: </label>
+                        <div class="col-5">
+                            <textarea class="form-control" formControlName="description" id="description"
+                                      rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-end" for="isEnabled">is Enabled: </label>
+                        <div class="col-5">
+                            <input type="text" class="form-control" formControlName="isEnabled" id="isEnabled"
+                                   value=""/>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-end" for="price">Price: </label>
+                        <div class="col-5">
+                            <input type="text" class="form-control" formControlName="price" id="price" value=""/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-end" for="imageUrl">Image: </label>
+                        <div class="col-5">
+                            <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" value=""/>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Update Value</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>

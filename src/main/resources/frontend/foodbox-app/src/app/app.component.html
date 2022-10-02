@@ -73,30 +73,41 @@
 <ng-template #loggedOut>
     &nbsp;
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-6">
+        <div class="col-4"></div>
+        <div class="col-4">
             <div class="card shadow-0">
                 <div class="card-header">
                     Welcome!
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Admin Login</h5>
+                    <h5 class="card-title">Login to FoodBox!</h5>
 
                     <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-                        <div class="mb-3">
-                            <label class="form-label" for="username">Username</label>
-                            <input class="form-control" formControlName="username" id="username" placeholder="username"
-                                   type="text">
+                        <div class="form-group row">
+                            <label class="col-2  col-form-label text-end" for="username">Username</label>
+                            <div class="col-5">
+                                <input type="text"
+                                       class="form-control"
+                                       id="username"
+                                       placeholder="username"
+                                       formControlName="username"
+                                       value="">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="password">Password</label>
-                            <input class="form-control" formControlName="password" id="password" placeholder="password"
-                                   type="password">
-                        </div>&nbsp;
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label text-end" for="password">Password: </label>
+                            <div class="col-5">
+                                <input type="password"
+                                       class="form-control"
+                                       id="password"
+                                       placeholder="password"
+                                       formControlName="password"
+                                       value=""/>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-6 d-flex justify-content-start">
-
                                 <button class="btn btn-primary" type="submit">Login</button>
                             </div>
                         </div>

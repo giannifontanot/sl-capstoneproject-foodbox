@@ -3,6 +3,7 @@ import {IFood} from "../model/food";
 import {SearchService} from "./search.service";
 import {Subscription} from "rxjs";
 import {LoginService} from "../login/login.service";
+import {Router} from "@angular/router";
 
 @Component({
     templateUrl: './search.component.html',
@@ -22,7 +23,8 @@ export class SearchComponent implements OnInit, OnDestroy {
     sub!: Subscription;
 
     constructor(private searchService: SearchService,
-                private loginService: LoginService) {
+                private loginService: LoginService,
+                private router: Router) {
     }
 
     getLoginService() {
@@ -115,5 +117,9 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     select(food: IFood) {
         this.searchService.addToCart(food);
+    }
+
+    edit(food: IFood): void {
+        this.router.navigate(['/editFood',food.id])
     }
 }
