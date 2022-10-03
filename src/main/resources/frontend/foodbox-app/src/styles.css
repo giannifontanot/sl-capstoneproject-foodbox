@@ -1,3 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
+
+.col-form-label {
+    /*border: 1px solid blue;*/
+    margin-top: 0.5em;
+}
+
+.form-control {
+    margin-top: 0.5em;
+
+}
+
+.form-select {
+    margin-top: 0.5em;
+
+}
+
+.form-check {
+    margin-top: 0.5em;
+}
+
+.cell {
+    /*border: solid 1px red;*/
+}
+
+.polaroid {
+    background: #ffffff;
+    border: 1px solid #BFBFBF;
+    border-radius: 3px;
+    padding: 6% 6% 18%;
+    text-align: center;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, .3);
+    transition: transform .2s ease-in-out;
+}
+
+.deg-1 {
+    rotate: 3deg;
+}
+.deg-2 {
+    rotate: -3deg;
+}
+.deg-3 {
+    rotate: 4deg;
+}
+.deg-4 {
+    rotate: -4deg;
+}
+.deg-5 {
+    rotate: 5deg;
+}
+
+.polaroid:hover{
+    transform: rotate(2deg)
+}
+
+.cell-gray {
+    border: 1px solid lightgray;
+    background-color: white;
+    color: black;
+}
+
+.cell-danger {
+    border: 1px solid lightgray;
+    background-color: lightgray;
+    color: black;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+
+}
+
+.github-image {
+    border-radius: 25px;
+}
+
+.shadow-0{
+    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0
+    rgba(0, 0, 0, 0.1);
+}
+
+.shadow-1{
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+    rgba(0, 0, 0, 0.19);
+}
+
+.shadow-2{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+    rgba(0, 0, 0, 0.19);
+}
+
+.shadow-4{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+    rgba(0, 0, 0, 0.19);
+}
+
+text-embossed{
+    color: red !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important;
+}
+
+.text-centered{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+

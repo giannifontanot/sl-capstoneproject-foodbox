@@ -120,6 +120,14 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
 
     edit(food: IFood): void {
-        this.router.navigate(['/editFood',food.id])
+        this.router.navigate(['/editFood', food.id])
+    }
+
+
+
+    RandomTilt() {
+    let tilt: number = 0;
+        tilt = Math.floor(Math.random() * 5)+1;
+        return "deg-" + tilt
     }
 }

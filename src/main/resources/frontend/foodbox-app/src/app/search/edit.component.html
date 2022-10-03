@@ -7,66 +7,86 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">On this screen, you edit the details of the a Dish</h5>
+                <div class="row">
+                    <div class="col-7 ">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="editFood">
 
-                <p></p>
-                <form (ngSubmit)="onSubmit()" [formGroup]="editFood">
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-end" for="foodName">ID: </label>
+                                <div class="col-9">
+                                    <input [readOnly]="true" type="number" class="form-control" formControlName="id" id="id" value=""/>
+                                </div>
+                            </div>
 
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label text-end" for="foodName">ID: </label>
-                        <div class="col-5">
-                            <input type="number" class="form-control" formControlName="id" id="id" value=""/>
-                        </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-end" for="foodName">Dish Name: </label>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" formControlName="foodName" id="foodName" value=""/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-end" for="cuisine">Cuisine: </label>
+                                <div class="col-9">
+                                    <select class="form-select" formControlName="cuisine" id="cuisine">
+                                        <option>ARAB</option>
+                                        <option>MEXICAN</option>
+                                        <option>ITALIAN</option>
+                                        <option>FRENCH</option>
+                                        <option>SPAIN</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-end" for="description">description: </label>
+                                <div class="col-9">
+                                    <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-end">is Enabled: </label>
+                                <div class="col-9">
+
+
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="Y"> Yes </label>
+                                        <input class="form-check-input" type="radio" id="Y" value="Y" name="isEnabled" formControlName="isEnabled"
+                                               checked>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="N"> No </label>
+                                        <input class="form-check-input" type="radio" id="N" value="N" name="isEnabled" formControlName="isEnabled"
+                                        >
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-end" for="price">Price: </label>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" formControlName="price" id="price" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-end" for="imageUrl">Image URL: </label>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" value=""/>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary">Update Value</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-5">
+                        <img class="polaroid deg-1" src="http://tinyurl.com/moleVerdeImage" alt="" width="100%">
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label text-end" for="foodName">Dish Name: </label>
-                        <div class="col-5">
-                            <input type="text" class="form-control" formControlName="foodName" id="foodName" value=""/>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label text-end" for="cuisine">Cuisine: </label>
-                        <div class="col-5">
-                        <input type="text" class="form-control" formControlName="cuisine" id="cuisine" value=""/>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label text-end" for="description">description: </label>
-                        <div class="col-5">
-                            <textarea class="form-control" formControlName="description" id="description"
-                                      rows="3"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label text-end" for="isEnabled">is Enabled: </label>
-                        <div class="col-5">
-                            <input type="text" class="form-control" formControlName="isEnabled" id="isEnabled"
-                                   value=""/>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label text-end" for="price">Price: </label>
-                        <div class="col-5">
-                            <input type="text" class="form-control" formControlName="price" id="price" value=""/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label text-end" for="imageUrl">Image: </label>
-                        <div class="col-5">
-                            <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" value=""/>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-primary">Update Value</button>
-                    </div>
-                </form>
-
-
+                </div>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@ export class EditComponent implements OnInit {
         price: [0, Validators.required],
         imageUrl: ['', Validators.required],
         cuisine: ['', Validators.required],
-        isEnabled: ['', Validators.required],
+        isEnabled: ['Y', Validators.required],
     });
 
 
