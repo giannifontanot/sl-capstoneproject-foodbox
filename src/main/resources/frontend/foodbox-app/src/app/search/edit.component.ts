@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {EditService} from "./edit.service";
 import {FormBuilder, Validators} from "@angular/forms";
 import {IFood} from "../model/food";
@@ -25,7 +25,8 @@ export class EditComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,
                 private activatedRoute: ActivatedRoute,
-                private editService: EditService) {
+                private editService: EditService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -58,7 +59,8 @@ export class EditComponent implements OnInit {
             imageUrl: this.editFood.controls.imageUrl.value
         }
         this.editService.updateFoodItem(editedFood).subscribe(data => {
-console.log("data", data)
+            alert('Dish was updated successfully')
+            this.router.navigate(['/search'])
         })
     }
 }

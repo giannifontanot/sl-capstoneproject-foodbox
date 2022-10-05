@@ -14,6 +14,13 @@
     </div>
 
     <div class="cell container">
+        <div class="row">
+            <div class="cell text-end">
+                <button class="button-margin cell btn btn-outline-primary btn-sm alert-secondary ">
+                    <i class="fa fa-spoon" aria-hidden="true"></i>&nbsp;&nbsp;New Dish
+                </button>
+            </div>
+        </div>
         <div class="cell row">
             <div class="cell col-12">
                 <div class="cell row bg-light border rounded p-1">
@@ -66,7 +73,7 @@
                     <div class="cell col-1 d-flex align-items-center"><div class="cell text-centered">{{food.price|currency}}</div></div>
                     <div class="cell col-1 d-flex align-items-center">
 
-                        <button *ngIf="getLoginService().admin" (click)="edit(food)"
+                        <button *ngIf="getLoginService().admin" (click)="delete(food)"
                                 class="cell btn btn-outline-primary btn-sm alert-secondary ">
                             <i aria-hidden="true" class='fa fa-eraser'></i> delete
                         </button>

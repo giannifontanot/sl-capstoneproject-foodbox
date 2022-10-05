@@ -17,6 +17,7 @@ import {ToastrModule} from 'ngx-toastr';
 import { OrdenComponent } from './orden/orden.component';
 import { LogoutComponent } from './login/logout.component';
 import { EditComponent } from './search/edit.component';
+import { DeleteComponent } from './search/delete.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { EditComponent } from './search/edit.component';
         DemoComponent,
         OrdenComponent,
         LogoutComponent,
-        EditComponent
+        EditComponent,
+        DeleteComponent
     ],
     imports: [
         BrowserModule,
@@ -50,6 +52,7 @@ import { EditComponent } from './search/edit.component';
             {path: 'logout', component: LogoutComponent},
             {path: 'login', component: AppComponent},
             {path: 'editFood/:id', component: EditComponent},
+            {path: 'deleteFood/:id', component: DeleteComponent},
         ]),
         FormsModule,
         ReactiveFormsModule

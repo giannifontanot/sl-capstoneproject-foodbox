@@ -130,4 +130,9 @@ export class SearchComponent implements OnInit, OnDestroy {
         tilt = Math.floor(Math.random() * 5)+1;
         return "deg-" + tilt
     }
+
+    delete(food: IFood) {
+        this.router.navigate(['/deleteFood', food.id])
+
+    }
 }
