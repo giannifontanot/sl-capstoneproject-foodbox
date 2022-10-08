@@ -1,6 +1,25 @@
 
 // TO DO
 
-- Checkout
 
--login
+
+VERY EASY
+- format cart list
+- better logout screen
+
+
+
+
+EASY
+
+
+MORE TIME
+-Cluodinary upload
+
+
+
+DEDICATED
+
+- orders page
+- checkout creates a new order
+- CICD

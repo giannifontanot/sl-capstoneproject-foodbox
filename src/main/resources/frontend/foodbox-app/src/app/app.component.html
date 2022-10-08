@@ -1,6 +1,6 @@
-<div class="alert alert-secondary p-1" role="alert" style="margin-bottom: 0px">
-    <div class="row">
-        <div class="col-4">
+<div class="cell-blue alert-secondary p-1" style="margin-bottom: 0; width:100%">
+    <div class="cell row mt-2 mb-2" style="width:100%; margin:0">
+        <div class="cell col-4">
             <div class="p-2 container d-flex">
                 <table class="align-baseline">
                     <tr class="align-baseline">
@@ -11,16 +11,16 @@
                                      src="assets/images/github.jpg"/>
                             </a>&nbsp;
                         </td>
+                        <td>
                         <span>
-                    <a href="https://github.com/giannifontanot/sl-capstone-foodbox" target="new">
-                        /giannifontanot/sl-capstone-foodbox
-                    </a>
-                </span>
+                            <a href="https://github.com/giannifontanot/sl-capstone-foodbox" target="new">/giannifontanot/sl-capstone-foodbox</a>
+                        </span>
+                        </td>
                     </tr>
                 </table>
             </div>
         </div>
-        <div class="col-4">
+        <div class="cell col-4">
             <h1 class='text-center'>
                 <span class="badge bg-warning shadow-1">F o o d
                     <span class="badge bg-danger shadow-2">B O X</span></span>
@@ -28,8 +28,8 @@
 
         </div>
 
-        <div class="col-4 align-middle">
-            <div class="container d-flex justify-content-end">
+        <div class="cell col-4 align-middle">
+            <div class="cd-flex justify-content-end">
                 <div class="p-2 align-baseline">
                     <span style="color:#A0A0A0;">Java Full Stack Bootcamp<br/>Gianni Fontanot - Angular</span>
                 </div>
@@ -37,27 +37,25 @@
         </div>
     </div>
 </div>
-<div *ngIf="getLoginService().loggedIn; else loggedOut">
-    <div class="row" style="margin-bottom: 1rem;">
-            <span class="badge text-embossed shadow-0" [ngClass]="getUsernameClass()">Welcome {{getUsername()}}
-                {{getUsernameProfile()}}</span>
-
+<div class="cell" *ngIf="getLoginService().loggedIn; else loggedOut">
+    <div class="row" style="margin-bottom: 1rem;"  [ngClass]="getUsernameClass()" class="shadow-0">
+                &nbsp;&nbsp;Welcome {{getUsername()}} {{getUsernameProfile()}}
     </div>
-    <div class="row" style="min-height: 100vh">
+    <div class="cell-blue row" style="height:80vh; width:100%">
         <div class="col-2 d-flex justify-content-end">
             <div aria-orientation="vertical" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
                 <a [routerLink]="['/demo']" class='nav-link cell-gray shadow-0' routerLinkActive='active'>
                     <i aria-hidden="true" class="fa fa-superpowers"></i>&nbsp;&nbsp;DEMO</a>
                 <a [routerLink]="['/search']" class='nav-link cell-gray shadow-0' routerLinkActive='active'>
                     <i aria-hidden="true" class="fa fa-search"></i>&nbsp;&nbsp;Search</a>
-                <a  *ngIf="!getLoginService().admin" [routerLink]="['/cart']" class='nav-link cell-gray shadow-0'
-                    routerLinkActive='active'>
+                <a *ngIf="!getLoginService().admin" [routerLink]="['/cart']" class='nav-link cell-gray shadow-0'
+                   routerLinkActive='active'>
                     <i aria-hidden="true" class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Cart</a>
-                <a  *ngIf="!getLoginService().admin" [routerLink]="['/checkout']" class='nav-link cell-gray shadow-0'
-                    routerLinkActive='active'>
+                <a *ngIf="!getLoginService().admin" [routerLink]="['/checkout']" class='nav-link cell-gray shadow-0'
+                   routerLinkActive='active'>
                     <i aria-hidden="true" class="fa fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
-                <a  *ngIf="!getLoginService().admin" [routerLink]="['/ordens']" class='nav-link cell-gray shadow-0'
-                    routerLinkActive='active'>
+                <a *ngIf="!getLoginService().admin" [routerLink]="['/ordens']" class='nav-link cell-gray shadow-0'
+                   routerLinkActive='active'>
                     <i aria-hidden="true" class="fa fa-edit"></i>&nbsp;&nbsp;Orders</a>
                 <a [routerLink]="['/logout']" class='nav-link cell-gray shadow-0' routerLinkActive='active'>
                     <i aria-hidden="true" class="fa fa-sign-in"></i>&nbsp;&nbsp;Logout</a>
@@ -73,64 +71,76 @@
 </div>
 
 <ng-template #loggedOut>
-    &nbsp;
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <div class="card shadow-0">
+    <div class="row" style="width:100%; margin-top: 3rem;">
+        <div class="cell col-4"></div>
+        <div class="cell col-4">
+            <div class="card shadow-1">
                 <div class="card-header">
                     Welcome!
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Login to FoodBox!</h5>
-
-                    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-                        <div class="form-group row">
-                            <label class="col-2  col-form-label text-end" for="username">Username</label>
-                            <div class="col-5">
-                                <input type="text"
-                                       class="form-control"
-                                       id="username"
-                                       placeholder="username"
-                                       formControlName="username"
-                                       value="">
+                    <div class="gapTop1em">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+                            <div class="cell row  d-flex justify-content-end align-items-center">
+                                <div class="cell col-3 text-end">
+                                    <label class="cell col-form-label-sm text-end " for="username">Username:</label>
+                                </div>
+                                <div class="cell col-5">
+                                    <input type="text"
+                                           class="form-control"
+                                           id="username"
+                                           placeholder="username"
+                                           formControlName="username"
+                                           value="">
+                                </div>
+                                <div class="cell col-4">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label text-end" for="password">Password: </label>
-                            <div class="col-5">
-                                <input type="password"
-                                       class="form-control"
-                                       id="password"
-                                       placeholder="password"
-                                       formControlName="password"
-                                       value=""/>
+                            <div class="cell row d-flex justify-content-end align-items-center">
+                                <div class="cell col-3 text-end">
+                                    <label class="cell col-form-label-sm text-end" for="password">Password:</label>
+                                </div>
+                                <div class="cell col-5 ">
+                                    <input type="password"
+                                           class="form-control"
+                                           id="password"
+                                           placeholder="password"
+                                           formControlName="password"
+                                           value=""/>
+                                </div>
+                                <div class="cell col-4">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6 d-flex justify-content-start">
-                                <button class="btn btn-primary" type="submit">Login</button>
+                            <div class="cell row">
+                                <div class="col-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col-5 d-flex justify-content-end">
+                                    <button class="btn btn-primary gapTop1em" type="submit">Login</button>
+                                </div>
+                                <div class="cell col-4">
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-4"></div>
+        <div class="cell col-4"></div>
     </div>
-    <div class="row" style="margin-top:60px;">
-        <div class="col-3">&nbsp;</div>
-        <div class="col-2">
+    <div class="cell-blue row" style="margin-top:60px; width:100%">
+        <div class="cell col">&nbsp;</div>
+        <div class="cell col-2">
             <img class="polaroid deg-2" src="http://tinyurl.com/kebab2Image" alt="" width="100%">
         </div>
-        <div class="col-2">
+        <div class="cell col-2">
             <img class="polaroid deg-3" src="http://tinyurl.com/moleVerdeImage" alt="" width="100%">
         </div>
-        <div class="col-2">
+        <div class="cell col-2">
             <img class="polaroid deg-5" src="http://tinyurl.com/barbacoaImage" alt="" width="100%">
         </div>
-        <div class="col-3">&nbsp;</div>
+        <div class="cell col">&nbsp;</div>
     </div>
 </ng-template>
 

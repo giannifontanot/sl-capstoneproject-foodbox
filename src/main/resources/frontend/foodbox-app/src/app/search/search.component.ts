@@ -135,4 +135,9 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.router.navigate(['/deleteFood', food.id])
 
     }
+
+    newDish() {
+        this.router.navigate(['/newFood'])
+
+    }
 }

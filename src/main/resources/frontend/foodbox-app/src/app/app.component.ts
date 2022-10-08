@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
 
     getUsernameClass(): string{
 
-        return this.getLoginService().admin?"bg-danger text-light":"bg-warning text-light";
+        return this.getLoginService().admin?"bg-secondary text-light adminBorder":"bg-warning text-light";
     }
 
     getUsernameProfile(): string{

@@ -1,86 +1,128 @@
 <div class="row">
-    <div class="col-2"></div>
-    <div class="col-6">
-        <div class="card">
+    <div class="col-1"></div>
+    <div class="col-8">
+        <div class="card shadow-1">
             <div class="card-header">
                 Delete Dish
             </div>
             <div class="card-body">
-                <h5 class="card-title">On this screen, you delete a Dish</h5>
-                <div class="row">
-                    <div class="col-7 ">
-                        <form (ngSubmit)="onSubmit()" [formGroup]="deleteFood">
+                <form (ngSubmit)="onSubmit()" [formGroup]="deleteFood" class="gapTop1em">
+                    <h5 class="card-title gapTop1em">On this screen, you delete a Dish.</h5>
+                    <div class="cell row">
+                        <div class="cell col-7 ">
 
-                            <div class="form-group row">
+                            <div class="cell form-group row">
                                 <label class="col-3 col-form-label text-end" for="foodName">ID: </label>
                                 <div class="col-9">
                                     <input [readOnly]="true" type="number" class="form-control" formControlName="id" id="id" value=""/>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="cell form-group row">
                                 <label class="col-3 col-form-label text-end" for="foodName">Dish Name: </label>
                                 <div class="col-9">
                                     <input [readOnly]="true" type="text" class="form-control" formControlName="foodName" id="foodName" value=""/>
+                                    <div *ngIf="deleteFood.controls['foodName'].invalid && deleteFood.controls['foodName'].touched">
+                                        <div *ngIf="deleteFood.controls['foodName'].errors!.required"
+                                             class="badge shadow-0 bg-danger">
+                                            Dish Name is required.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="cell form-group row">
                                 <label class="col-3 col-form-label text-end" for="cuisine">Cuisine: </label>
                                 <div class="col-9">
                                     <input [readOnly]="true" type="text" class="form-control" formControlName="cuisine" id="cuisine" value=""/>
 
+                                    <div *ngIf="deleteFood.controls['cuisine'].invalid && deleteFood.controls['cuisine'].touched">
+                                        <div *ngIf="deleteFood.controls['cuisine'].errors!.required"
+                                             class="badge shadow-0 bg-danger">
+                                            Cuisine is required.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-end" for="description">description: </label>
+                            <div class="cell form-group row">
+                                <label class="col-3 col-form-label text-end" for="description">Description: </label>
                                 <div class="col-9">
                                     <textarea [readOnly]="true" class="form-control" formControlName="description" id="description" rows="3"></textarea>
+                                    <div *ngIf="deleteFood.controls['description'].invalid && deleteFood.controls['description'].touched">
+                                        <div *ngIf="deleteFood.controls['description'].errors!.required"
+                                             class="badge shadow-0 bg-danger">
+                                            Holy guacamole! Description is required.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="cell form-group row">
                                 <label class="col-3 col-form-label text-end">is Enabled: </label>
                                 <div class="col-9">
 
+                                    <input [readOnly]="true" type="text" class="form-control" formControlName="isEnabled" id="isEnabled" value=""/>
 
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="Y"> Yes </label>
-                                        <input [readOnly]="true" class="form-check-input" type="radio" id="Y" value="Y" name="isEnabled" formControlName="isEnabled"
-                                               checked>
-                                    </div>
-                                    <div class="form-check">
-                                        <label class="form-check-label" for="N"> No </label>
-                                        <input [readOnly]="true" class="form-check-input" type="radio" id="N" value="N" name="isEnabled"
-                                               formControlName="isEnabled">
-                                    </div>
+
+
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="cell form-group row">
                                 <label class="col-3 col-form-label text-end" for="price">Price: </label>
                                 <div class="col-9">
-                                    <input [readOnly]="true" type="text" class="form-control" formControlName="price" id="price" value=""/>
+                                    <input [readOnly]="true" type="number" class="form-control" formControlName="price" id="price" value=""/>
+                                    <div *ngIf="deleteFood.controls['price'].invalid && deleteFood.controls['price'].touched">
+                                        <div *ngIf="deleteFood.controls['price'].errors!.required" class="badge shadow-0 bg-danger">
+                                            <!--                                            <div *ngIf="editFood.controls['price'].hasError('max')" class="badge shadow-0 bg-danger">-->
+                                            Price is required.
+                                            <!--                                            </div>-->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-end" for="imageUrl">Image URL: </label>
+                            <div class="cell form-group row">
+                                <label class="col-3 col-form-label text-end" for="imageUrl">Image:</label>
                                 <div class="col-9">
-                                    <input [readOnly]="true" type="text" class="form-control" formControlName="imageUrl" id="imageUrl" value=""/>
+                                    <input [readOnly]="true" type="text" class="form-control" formControlName="imageUrl" id="imageUrl" value=""
+                                           [(ngModel)]="myImageUrl"/>
+                                    <div *ngIf="deleteFood.controls['imageUrl'].invalid && deleteFood.controls['imageUrl'].touched">
+                                        <div *ngIf="deleteFood.controls['imageUrl'].errors!.required"
+                                             class="badge shadow-0 bg-danger">
+                                            Image is required.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary">Delete Dish</button>
+                        </div>
+                        <div class="cell col-5 d-flex align-items-center gapBottom2em">
+
+
+                            <div class="cell-blue col-12">
+                                <div class="cell row">
+                                    <div class="cell col-1"></div>
+                                    <div class="cell col-10">
+                                        <img class="polaroid deg-1 gapTop1em" src="{{myImageUrl}}" alt="" width="100%">
+                                    </div>
+                                    <div class="cell col-1"></div>
+                                </div>
+                                <div class="cell row">
+                                    <div class="cell d-flex justify-content-center">
+                                        <button type="submit" class="gapTop2em btn btn-primary">
+                                            Delete Dish
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
+
+
+                        </div>
+
                     </div>
-                    <div class="col-5">
-                        <img class="polaroid deg-1" src="http://tinyurl.com/moleVerdeImage" alt="" width="100%">
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="col-4"></div>
+    <div class="col-3"></div>
 </div>

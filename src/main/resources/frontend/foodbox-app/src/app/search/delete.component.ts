@@ -11,6 +11,7 @@ import {IFood} from "../model/food";
 })
 export class DeleteComponent implements OnInit {
 
+  private _myImageUrl: string = "http://tinyurl.com/dishBlankImage"
 
   deleteFood = this.formBuilder.group({
     id: [0, Validators.required],
@@ -29,6 +30,15 @@ export class DeleteComponent implements OnInit {
               private router: Router) {
   }
 
+
+  get myImageUrl(): string {
+    return this._myImageUrl;
+  }
+
+  set myImageUrl(value: string) {
+    this._myImageUrl = value;
+
+  }
   ngOnInit(): void {
     console.log("delete ngOnInit")
     this.activatedRoute.paramMap.subscribe(params => {

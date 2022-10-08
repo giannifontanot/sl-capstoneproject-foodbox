@@ -3,11 +3,11 @@
     <div class="col-8">
         <div class="card shadow-1">
             <div class="card-header">
-                Edit Dish
+                Add a New Dish
             </div>
             <div class="card-body">
-                <form (ngSubmit)="onSubmit()" [formGroup]="editFood" class="gapTop1em">
-                    <h5 class="card-title gapTop1em">On this screen, you edit the details of the a Dish</h5>
+                <form (ngSubmit)="onSubmit()" [formGroup]="addFood" class="gapTop1em">
+                    <h5 class="card-title gapTop1em">On this screen, you add a new Dish</h5>
                     <div class="cell row">
                         <div class="cell col-7 ">
 
@@ -22,8 +22,8 @@
                                 <label class="col-3 col-form-label text-end" for="foodName">Dish Name: </label>
                                 <div class="col-9">
                                     <input type="text" class="form-control" formControlName="foodName" id="foodName" value=""/>
-                                    <div *ngIf="editFood.controls['foodName'].invalid && editFood.controls['foodName'].touched">
-                                        <div *ngIf="editFood.controls['foodName'].errors!.required"
+                                    <div *ngIf="addFood.controls['foodName'].invalid && addFood.controls['foodName'].touched">
+                                        <div *ngIf="addFood.controls['foodName'].errors!.required"
                                              class="badge shadow-0 bg-danger">
                                             Dish Name is required.
                                         </div>
@@ -41,8 +41,8 @@
                                         <option>FRENCH</option>
                                         <option>SPAIN</option>
                                     </select>
-                                    <div *ngIf="editFood.controls['cuisine'].invalid && editFood.controls['cuisine'].touched">
-                                        <div *ngIf="editFood.controls['cuisine'].errors!.required"
+                                    <div *ngIf="addFood.controls['cuisine'].invalid && addFood.controls['cuisine'].touched">
+                                        <div *ngIf="addFood.controls['cuisine'].errors!.required"
                                              class="badge shadow-0 bg-danger">
                                             Cuisine is required.
                                         </div>
@@ -54,8 +54,8 @@
                                 <label class="col-3 col-form-label text-end" for="description">Description: </label>
                                 <div class="col-9">
                                     <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
-                                    <div *ngIf="editFood.controls['description'].invalid && editFood.controls['description'].touched">
-                                        <div *ngIf="editFood.controls['description'].errors!.required"
+                                    <div *ngIf="addFood.controls['description'].invalid && addFood.controls['description'].touched">
+                                        <div *ngIf="addFood.controls['description'].errors!.required"
                                              class="badge shadow-0 bg-danger">
                                             Holy guacamole! Description is required.
                                         </div>
@@ -86,11 +86,11 @@
                                 <label class="col-3 col-form-label text-end" for="price">Price: </label>
                                 <div class="col-9">
                                     <input type="number" class="form-control" formControlName="price" id="price" value=""/>
-                                    <div *ngIf="editFood.controls['price'].invalid && editFood.controls['price'].touched">
-                                        <div *ngIf="editFood.controls['price'].errors!.required" class="badge shadow-0 bg-danger">
-<!--                                            <div *ngIf="editFood.controls['price'].hasError('max')" class="badge shadow-0 bg-danger">-->
-                                                Price is required.
-<!--                                            </div>-->
+                                    <div *ngIf="addFood.controls['price'].invalid && addFood.controls['price'].touched">
+                                        <div *ngIf="addFood.controls['price'].errors!.required" class="badge shadow-0 bg-danger">
+                                            <!--                                            <div *ngIf="editFood.controls['price'].hasError('max')" class="badge shadow-0 bg-danger">-->
+                                            Price is required.
+                                            <!--                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -100,8 +100,8 @@
                                 <div class="col-9">
                                     <input type="text" class="form-control" formControlName="imageUrl" id="imageUrl" value=""
                                            [(ngModel)]="myImageUrl"/>
-                                    <div *ngIf="editFood.controls['imageUrl'].invalid && editFood.controls['imageUrl'].touched">
-                                        <div *ngIf="editFood.controls['imageUrl'].errors!.required"
+                                    <div *ngIf="addFood.controls['imageUrl'].invalid && addFood.controls['imageUrl'].touched">
+                                        <div *ngIf="addFood.controls['imageUrl'].errors!.required"
                                              class="badge shadow-0 bg-danger">
                                             Image is required.
                                         </div>
@@ -123,7 +123,7 @@
                                 <div class="cell row">
                                     <div class="cell d-flex justify-content-center">
                                         <button type="submit" class="gapTop2em btn btn-primary">
-                                            Update Dish
+                                            Add New Dish
                                         </button>
                                     </div>
                                 </div>

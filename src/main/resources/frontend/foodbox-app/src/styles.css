@@ -2,8 +2,13 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
 
+
 .cell {
     /*border: solid 1px red;*/
+}
+
+.cell-blue {
+    /*border: solid 1px blue;*/
 }
 
 .col-form-label {
@@ -110,5 +115,23 @@ text-embossed {
     margin: 0.5em -0.5em;
 }
 
+.adminBorder{
+    border: 5px solid greenyellow;
+}
 
+.gapTop1em{
+    margin-top: 1em;
+}
+
+.gapTop2em{
+    margin-top: 2em;
+}
+
+.gapBottom2em{
+    margin-bottom: 2em;
+}
+
+.gapBottom1em{
+    margin-bottom: 1em;
+}
 
