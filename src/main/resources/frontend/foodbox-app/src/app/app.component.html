@@ -83,6 +83,9 @@
                     <div class="gapTop1em">
                         <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
                             <div class="cell row  d-flex justify-content-end align-items-center">
+                                <div class="cell col-1 text-end">
+                                    &nbsp;
+                                </div>
                                 <div class="cell col-3 text-end">
                                     <label class="cell col-form-label-sm text-end " for="username">Username:</label>
                                 </div>
@@ -94,10 +97,13 @@
                                            formControlName="username"
                                            value="">
                                 </div>
-                                <div class="cell col-4">
+                                <div class="cell col-3">
                                 </div>
                             </div>
                             <div class="cell row d-flex justify-content-end align-items-center">
+                                <div class="cell col-1 text-end">
+                                    &nbsp;
+                                </div>
                                 <div class="cell col-3 text-end">
                                     <label class="cell col-form-label-sm text-end" for="password">Password:</label>
                                 </div>
@@ -109,17 +115,20 @@
                                            formControlName="password"
                                            value=""/>
                                 </div>
-                                <div class="cell col-4">
+                                <div class="cell col-3">
                                 </div>
                             </div>
                             <div class="cell row">
+                                <div class="col-1">
+                                    &nbsp;
+                                </div>
                                 <div class="col-3">
                                     &nbsp;
                                 </div>
                                 <div class="col-5 d-flex justify-content-end">
                                     <button class="btn btn-primary gapTop1em" type="submit">Login</button>
                                 </div>
-                                <div class="cell col-4">
+                                <div class="cell col-3">
                                 </div>
                             </div>
                         </form>

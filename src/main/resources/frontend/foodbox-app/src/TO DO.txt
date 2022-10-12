@@ -4,7 +4,6 @@
 
 
 VERY EASY
-- format cart list
 - better logout screen
 
 
@@ -23,3 +22,7 @@ DEDICATED
 - orders page
 - checkout creates a new order
 - CICD
+
+
+NO PRIORITY
+- colored tables (search and cart)

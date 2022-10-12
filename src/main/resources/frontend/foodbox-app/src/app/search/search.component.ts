@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     foodsFiltered: IFood[] = [];
     foodsOriginal: IFood[] = [];
     foods: IFood[] = [];
-    cart: IFood [] = []
+    cart: IFood [] = [];
     listFilter: string = '';
     _dishFilter: string = '';
     _cuisineFilter: string = '';

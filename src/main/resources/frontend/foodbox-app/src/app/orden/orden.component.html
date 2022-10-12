@@ -1,1 +1,31 @@
-<p>orden works!</p>
+<div class="cell card">
+    <div class="cell card-header">
+        Order List
+    </div>
+    <div class="container">
+        <div class="cell card-body mt-3 mb-4">
+            <h5 class="cell card-title">This is the list of orders form our clients</h5>
+
+            <p class="cell card-text">Your orders will show up here. </p>
+            <div class="row  alert-info border rounded">
+
+                <div class="col-3 text-center fw-bold">Order Id:</div>
+                <div class="col-3 fw-bold">User:</div>
+                <div class="col-3 fw-bold">Dish:</div>
+                <div class="col-3 fw-bold text-center">Status:</div>
+
+            </div>
+            <div *ngFor="let displayOrden of displayOrdens" class="cell">
+                <div class="row">
+                    <div class="col-3"
+                         [ngClass]="displayOrden.id === 0 ? getClass(): setClass(displayOrden.id)">
+                        <div class=" text-center">{{displayOrden.id === 0 ? "" : displayOrden.id}}</div>
+                    </div>
+                    <div class="col-3" [ngClass]="getClass()">{{displayOrden.username}}</div>
+                    <div class="col-3" [ngClass]="getClass()">{{displayOrden.foodName}}</div>
+                    <div class="col-3 text-center" [ngClass]="getClass()">{{displayOrden.status}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,9 @@
-export interface IUser{
-name: string;
-password: string;
-address: string;
+export interface IUser {
+    id: number;
+    username: string;
+    name: string;
+    password: string;
+    contact: string;
+    credit: string;
+    profile: string;
 }

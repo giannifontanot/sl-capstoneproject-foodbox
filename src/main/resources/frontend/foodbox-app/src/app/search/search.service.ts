@@ -24,7 +24,7 @@ export class SearchService {
 
     getFoods(): Observable<IFood[]> {
         return this.http.get<IFood[]>(this.foodUrl).pipe(
-            tap(data => data),
+            tap(data => console.log("data: " + JSON.stringify(data))),
             catchError(this.handleError)
         );
     }

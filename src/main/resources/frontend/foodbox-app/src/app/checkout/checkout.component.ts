@@ -5,6 +5,7 @@ import {IFood} from "../model/food";
 import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {IOrden} from "../model/orden";
+import {LoginService} from "../login/login.service";
 
 @Component({
     selector: 'ks-checkout',
@@ -15,12 +16,14 @@ export class CheckoutComponent implements OnInit {
     cart: IFood[] = []
     cartTotal = this.searchService.absoluteTotal
     checkoutForm = this.formBuilder.group({
-        username: ['Yomerito', Validators.required],
-        address: ['Aquimerito 1234, Roswell NM 88000', Validators.required],
-        credit: ['4444-0000-0000-0001', Validators.required]
+        id: [this.loginService.id, Validators.required],
+        username: [this.loginService.name, Validators.required],
+        contact: [this.loginService.contact, Validators.required],
+        credit: [this.loginService.credit, Validators.required]
     });
 
-    constructor(private searchService: SearchService,
+    constructor(private loginService:LoginService,
+                private searchService: SearchService,
                 private purchaseService: PurchaseService,
                 private formBuilder: UntypedFormBuilder,
                 private router: Router) {
@@ -29,6 +32,7 @@ export class CheckoutComponent implements OnInit {
     ngOnInit(): void {
         this.cart = this.searchService.getCart()
     }
+
 
     onSubmit(): void {
         this.purchaseService.postPurchase(this.createOrder()).subscribe({

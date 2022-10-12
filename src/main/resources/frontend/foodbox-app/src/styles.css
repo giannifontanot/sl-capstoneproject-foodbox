@@ -30,7 +30,6 @@
     margin-top: 0.5em;
 }
 
-
 .polaroid {
     background: #ffffff;
     border: 1px solid #BFBFBF;
@@ -135,3 +134,12 @@ text-embossed {
     margin-bottom: 1em;
 }
 
+.pintaGris0{
+    /*border: 1px solid lightgray;*/
+    background-color: #F0F0F0;
+}
+
+.pintaGris1{
+    /*border: 1px solid lightgray;*/
+    background-color: #F8F8F8;
+}

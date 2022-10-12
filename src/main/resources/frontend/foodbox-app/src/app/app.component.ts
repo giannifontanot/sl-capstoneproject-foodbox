@@ -31,11 +31,19 @@ export class AppComponent implements OnInit {
 
         this.loginService.submitLogin(this.loginForm.value).subscribe({
             next: (data) => {
-                data !== "F"?this.isLoggedIn = true:this.isLoggedIn = false;
-                data === "A"?this.isAdmin = true:this.isAdmin = false;
+            //     data = JSON.parse(JSON.stringify(data));
+                data.profile !== "F"?this.isLoggedIn = true:this.isLoggedIn = false;
+                data.profile === "A"?this.isAdmin = true:this.isAdmin = false;
 
                 this.getLoginService().loggedIn = this.isLoggedIn;
                 this.getLoginService().admin = this.isAdmin;
+                this.getLoginService().id = data.id;
+                this.getLoginService().name = data.name;
+                this.getLoginService().contact = data.contact;
+                this.getLoginService().credit = data.credit;
+
+                console.log("data", data);
+
             },
             error: (err => console.log("ERROR: > " + err))
         });

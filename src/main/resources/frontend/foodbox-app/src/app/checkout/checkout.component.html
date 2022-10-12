@@ -12,13 +12,17 @@
                 <form (ngSubmit)="onSubmit()" [formGroup]="checkoutForm">
 
                     <div class="mb-2">
-                        <label class="form-label mb-1" for="username">Name</label>
-                        <input class="form-control" formControlName="username" id="username" placeholder="name" type="text">
+                        <label class="form-label mb-1" for="username">ID</label>
+                        <input class="form-control" formControlName="id" id="id" placeholder="id" type="text" [readOnly]="true">
                     </div>
                     <div class="mb-2">
-                        <label class="form-label mb-1" for="address">Address</label>
-                        <input class="form-control" formControlName="address" id="address" placeholder="address"
-                               type="text">
+                        <label class="form-label mb-1" for="username">Name</label>
+                        <input class="form-control" formControlName="username" id="username" placeholder="name" type="text" [readOnly]="true">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label mb-1" for="contact">Contact</label>
+                        <input class="form-control" formControlName="contact" id="contact" placeholder="contact"
+                               type="text" [readOnly]="true">
                     </div>
                     <div class="mb-4">
                         <label class="form-label mb-1" for="credit">Credit Card</label>
@@ -28,15 +32,13 @@
                                placeholder="No worries, it's on the house!"
                                type="text">
                     </div>
-
                     <div>
                         <button class="btn btn-primary" type="submit">Place Your Order</button>
                         <img alt="credit card" src="../../assets/images/we_accept.png" width="70%"/>
                     </div>
                 </form>
             </div>
-        </div>
-        &nbsp;
+        </div>&nbsp;
 
     </div>
     <div class="col-6">
@@ -54,16 +56,7 @@
 
             <ul *ngFor="let food of cart" class="list-group list-group-flush">
                 <li class="list-group-item">{{food.price|currency}} {{food.foodName}}</li>
-
             </ul>
-            <!--            <div *ngFor="let food of cart" class="row border rounded p-1">-->
-            <!--                -->
-            <!--                <div class="row">-->
-            <!--                    <div class="col-2 text-center">{{food.foodId}}</div>-->
-            <!--                    <div class="col-8">{{food.foodName}}</div>-->
-            <!--                    <div class="col-2">{{food.price|currency}}</div>-->
-            <!--                </div>-->
-            <!--            </div>-->
         </div>
     </div>
 </div>
