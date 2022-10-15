@@ -27,20 +27,20 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit() {
-        this.loginService.submitLogin(this.loginForm.value).subscribe(
-            {
-                next: (data) => {
-                    console.log("component:" + data)
-                    this.inventoryService.admin = true;
-                    this.router.navigate(["/inventory"])
-                },
-                error: (err => console.log("ERROR: "+err))
-            }
-        )
+        // this.loginService.submitLogin(this.loginForm.value).subscribe(
+        //     {
+        //         next: (data) => {
+        //             console.log("component:" + data)
+        //             this.inventoryService.admin = true;
+        //             this.router.navigate(["/inventory"])
+        //         },
+        //         error: (err => console.log("ERROR: "+err))
+        //     }
+        // )
     }
 
     onChangePassword() {
-        this.router.navigate(["/changePassword"])
+        // this.router.navigate(["/changePassword"])
 
     }
 }

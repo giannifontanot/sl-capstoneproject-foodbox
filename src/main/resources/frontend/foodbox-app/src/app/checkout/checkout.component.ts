@@ -43,11 +43,9 @@ export class CheckoutComponent implements OnInit {
         this.purchaseService.postPurchase(this.createOrder()).subscribe({
             next: (data: any) => {
 
-
                 let retVal = JSON.parse(JSON.stringify(data))
-                console.log("return from postPurchase: " + JSON.stringify(data))
                 if (JSON.stringify(data) === ("1")) {
-
+                    this.searchService.cart = [];
                     this.router.navigate(["/ordens"])
                 }
             },
@@ -61,10 +59,6 @@ export class CheckoutComponent implements OnInit {
     createOrder(): IOrden {
         this.searchService.orden = {user: this.checkoutForm.value, cart: this.searchService.cart, status: "PENDING"}
 
-        console.log("this.searchService.order: " + JSON.stringify(this.searchService.orden))
-        console.log("this.checkoutForm.value: " + JSON.stringify(this.checkoutForm.value))
-        console.log("this.searchService.cart: " + JSON.stringify(this.searchService.cart))
         return this.searchService.orden;
-        //    this.searchService.order: {"client":{"name":"","address":"","credit":""},"cart":[{"id":2,"foodName":"2 Mole Verde","price":20,"cuisine":"CUBAN","description":"2Receta de la abuelita de mole verde","isEnabled":"Y","imageUrl":"tinyurl.com/moleVerdeImagex"},{"id":1,"foodName":"Kebab","price":10,"cuisine":"ARAB","description":"como una gordita guenisima","isEnabled":"Y","imageUrl":"tinyurl.com/moleVerdeImagex"}]}
     }
 }

@@ -34,7 +34,8 @@
                                type="text">
                     </div>
                     <div>
-                        <button class="btn btn-primary" type="submit">Place Your Order</button>
+                        <button *ngIf="cart.length===0" [disabled]="true" class="btn btn-primary" type="submit">Place Your Order</button>
+                        <button *ngIf="cart.length>0"class="btn btn-primary" type="submit">Place Your Order</button>
                         <img alt="credit card" src="../../assets/images/we_accept.png" width="70%"/>
                     </div>
                 </form>
@@ -51,9 +52,7 @@
             <div class="card-body">
                 <h5 class="card-title">Cart Content</h5>
                 <p *ngIf="cart.length<=0" class="card-text"> - empty - </p>
-
             </div>
-
 
             <ul *ngFor="let food of cart" class="list-group list-group-flush">
                 <li class="list-group-item">{{food.price|currency}} {{food.foodName}}</li>

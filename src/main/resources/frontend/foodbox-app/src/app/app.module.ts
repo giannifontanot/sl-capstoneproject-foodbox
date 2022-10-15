@@ -18,6 +18,7 @@ import { LogoutComponent } from './login/logout.component';
 import { EditComponent } from './search/edit.component';
 import { DeleteComponent } from './search/delete.component';
 import { NewComponent } from './search/new.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { NewComponent } from './search/new.component';
         LogoutComponent,
         EditComponent,
         DeleteComponent,
-        NewComponent
+        NewComponent,
+        AboutComponent
     ],
     imports: [
         BrowserModule,
@@ -53,6 +55,7 @@ import { NewComponent } from './search/new.component';
             {path: 'editFood/:id', component: EditComponent},
             {path: 'deleteFood/:id', component: DeleteComponent},
             {path: 'newFood', component: NewComponent},
+            {path: 'about', component: AboutComponent},
         ]),
         FormsModule,
         ReactiveFormsModule
