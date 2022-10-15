@@ -1,10 +1,10 @@
 <div class="cell card">
     <div class="cell card-header">
-        Order List
+        Thank you!
     </div>
     <div class="container">
         <div class="cell card-body mt-3 mb-4">
-            <h5 class="cell card-title">This is the list of orders form our clients</h5>
+            <h5 class="cell card-title">This is your list of orders. We appreciate your patience when we prepare your box.</h5>
 
             <p class="cell card-text">Your orders will show up here. </p>
             <div class="row  alert-info border rounded">
@@ -18,7 +18,7 @@
             <div *ngFor="let displayOrden of displayOrdens" class="cell">
                 <div class="row">
                     <div class="col-3"
-                         [ngClass]="displayOrden.id === 0 ? getClass(): setClass(displayOrden.id)">
+                         [ngClass]="displayOrden.id === 0 ? getClass(): setClass()">
                         <div class=" text-center">{{displayOrden.id === 0 ? "" : displayOrden.id}}</div>
                     </div>
                     <div class="col-3" [ngClass]="getClass()">{{displayOrden.username}}</div>

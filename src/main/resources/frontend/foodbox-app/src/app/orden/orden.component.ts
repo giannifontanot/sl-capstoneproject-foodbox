@@ -20,48 +20,61 @@ export class OrdenComponent implements OnInit {
 
     ngOnInit(): void {
 
-        let ordenNum: number =  this.loginService.id ;
+        let ordenNum: number = this.loginService.id;
 
         this.sub = this.ordenService.getDisplayOrden(ordenNum).subscribe({
-          next: data => {
-              console.log("ngOnInit: data: " + JSON.stringify(data));
-              this.displayOrdens = data
+            next: data => {
+                console.log("ngOnInit: data: " + JSON.stringify(data));
+                this.displayOrdens = data
 
 
-              let titleUserName: string = "";
-              let titleId: number = 0;
-              let titleStatus: string = "";
-              this.displayOrdens.forEach(orden => {
-                   if(orden.id === titleId){orden.id = 0;}else{ titleId = orden.id;titleUserName = "";titleStatus = ""; }
-                   if(orden.username === titleUserName){orden.username = "";}else{ titleUserName = orden.username}
-                   if(orden.status === titleStatus){orden.status = "";}else{ titleStatus = orden.status}
+                let titleUserName: string = "";
+                let titleId: number = 0;
+                let titleStatus: string = "";
+                this.displayOrdens.forEach(orden => {
+                    if (orden.id === titleId) {
+                        orden.id = 0;
+                    } else {
+                        titleId = orden.id;
+                        titleUserName = "";
+                        titleStatus = "";
+                    }
+                    if (orden.username === titleUserName) {
+                        orden.username = "";
+                    } else {
+                        titleUserName = orden.username
+                    }
+                    if (orden.status === titleStatus) {
+                        orden.status = "";
+                    } else {
+                        titleStatus = orden.status
+                    }
 
 
-              })
+                })
 
-              return this.displayOrdens;
-          },
-          error: err => console.log(err)
+                return this.displayOrdens;
+            },
+            error: err => console.log(err)
         });
     }
 
 
-    handleError(err:any): void{
-      alert(err.message)
+    handleError(err: any): void {
+        alert(err.message)
     }
 
     private retClass: string = "";
-    private counter = 0;
+    private bGris: boolean = true;
 
-    setClass(id: number) {
-        let row = id%2;
-        this.retClass = "pintaGris" + row;
+    setClass() {
 
+        this.retClass = this.bGris ? "pintaGris0" : "pintaGris1";
+        this.bGris = !this.bGris;
         return this.retClass
     }
 
-    getClass(){
-// console.log("getClass()");
+    getClass() {
         return this.retClass;
     }
 }

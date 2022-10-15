@@ -20,7 +20,7 @@
                     <div class="cell col-1 text-center">Price</div>
                     <div class="cell col-1 text-center"></div>
                 </div>
-
+                <p *ngIf="cart.length<=0" class="card-text text-center mt-1 mb-1"> - empty - </p>
                 <div *ngFor="let food of cart" class="cell row border rounded p-1">
                     <div class="cell col-1 d-flex align-items-center">
                         <button (click)="removeItem(food)"

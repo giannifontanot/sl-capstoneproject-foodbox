@@ -8,21 +8,22 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">Customer's information</h5>
+                <p class="card-title mb-4">Update your information if needed.</p>
 
                 <form (ngSubmit)="onSubmit()" [formGroup]="checkoutForm">
 
                     <div class="mb-2">
-                        <label class="form-label mb-1" for="username">ID</label>
+                        <label class="form-label mb-1" for="id">ID</label>
                         <input class="form-control" formControlName="id" id="id" placeholder="id" type="text" [readOnly]="true">
                     </div>
                     <div class="mb-2">
-                        <label class="form-label mb-1" for="username">Name</label>
-                        <input class="form-control" formControlName="username" id="username" placeholder="name" type="text" [readOnly]="true">
+                        <label class="form-label mb-1" for="name">Name</label>
+                        <input class="form-control" formControlName="name" id="name" placeholder="name" type="text" [readOnly]="false">
                     </div>
                     <div class="mb-2">
                         <label class="form-label mb-1" for="contact">Contact</label>
                         <input class="form-control" formControlName="contact" id="contact" placeholder="contact"
-                               type="text" [readOnly]="true">
+                               type="text" [readOnly]="false">
                     </div>
                     <div class="mb-4">
                         <label class="form-label mb-1" for="credit">Credit Card</label>

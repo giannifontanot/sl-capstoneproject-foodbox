@@ -12,12 +12,13 @@ import {LoginService} from "../login/login.service";
     templateUrl: './checkout.component.html',
     styleUrls: ['./checkout.component.css']
 })
+
 export class CheckoutComponent implements OnInit {
     cart: IFood[] = []
     cartTotal = this.searchService.absoluteTotal
     checkoutForm = this.formBuilder.group({
         id: [this.loginService.id, Validators.required],
-        username: [this.loginService.name, Validators.required],
+        name: [this.loginService.name, Validators.required],
         contact: [this.loginService.contact, Validators.required],
         credit: [this.loginService.credit, Validators.required]
     });
@@ -35,15 +36,19 @@ export class CheckoutComponent implements OnInit {
 
 
     onSubmit(): void {
+
+        this.loginService.name = this.checkoutForm.get("name")?.value;
+        this.loginService.contact = this.checkoutForm.get("contact")?.value;
+        this.loginService.credit = this.checkoutForm.get("credit")?.value;
         this.purchaseService.postPurchase(this.createOrder()).subscribe({
             next: (data: any) => {
 
 
                 let retVal = JSON.parse(JSON.stringify(data))
-                // let retVal = JSON.stringify(data)
-                if (retVal === ("OK")) {
+                console.log("return from postPurchase: " + JSON.stringify(data))
+                if (JSON.stringify(data) === ("1")) {
 
-                    this.router.navigate(["/purchase"])
+                    this.router.navigate(["/ordens"])
                 }
             },
             error: err => {
@@ -54,7 +59,7 @@ export class CheckoutComponent implements OnInit {
     }
 
     createOrder(): IOrden {
-        this.searchService.orden = {user: this.checkoutForm.value, cart: this.searchService.cart, status: "PEND"}
+        this.searchService.orden = {user: this.checkoutForm.value, cart: this.searchService.cart, status: "PENDING"}
 
         console.log("this.searchService.order: " + JSON.stringify(this.searchService.orden))
         console.log("this.checkoutForm.value: " + JSON.stringify(this.checkoutForm.value))

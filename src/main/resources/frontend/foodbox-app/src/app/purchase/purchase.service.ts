@@ -11,7 +11,7 @@ import {IOrden} from "../model/orden";
 export class PurchaseService {
   // foodUrl: string = 'api/foods.json';
   foodUrl: string = 'http://localhost:8080/food/getAllFoods';
-  postPurchaseUrl: string = 'http://localhost:8080/cart/placeOrden';
+  postPurchaseUrl: string = 'http://localhost:8080/cart/postPurchase';
   cart: IFood[] = [];
   absoluteTotal: number = 0;
 
@@ -25,7 +25,7 @@ export class PurchaseService {
     };
 
     return this.http.post<any>(this.postPurchaseUrl, JSON.stringify(orden), httpOptions).pipe(
-        tap(data => console.log(JSON.stringify(data))),
+        tap(data => (data)),
         catchError(this.handleError)
     );
   }

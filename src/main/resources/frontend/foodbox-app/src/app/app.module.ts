@@ -9,7 +9,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {CartComponent} from './cart/cart.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {InventoryComponent} from './inventory/inventory.component';
-import {PurchaseComponent} from './purchase/purchase.component';
 import {ChangeComponent} from './login/change.component';
 import {DemoComponent} from './demo/demo.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -28,7 +27,6 @@ import { NewComponent } from './search/new.component';
         CartComponent,
         CheckoutComponent,
         InventoryComponent,
-        PurchaseComponent,
         ChangeComponent,
         DemoComponent,
         OrdenComponent,
@@ -50,7 +48,6 @@ import { NewComponent } from './search/new.component';
             {path: 'inventory', component: InventoryComponent},
             {path: 'cart', component: CartComponent},
             {path: 'checkout', component: CheckoutComponent},
-            {path: 'purchase', component: PurchaseComponent},
             {path: 'logout', component: LogoutComponent},
             {path: 'login', component: AppComponent},
             {path: 'editFood/:id', component: EditComponent},
