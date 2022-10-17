@@ -35,11 +35,11 @@
                                 <label class="col-3 col-form-label text-end" for="cuisine">Cuisine: </label>
                                 <div class="col-9">
                                     <select class="form-select" formControlName="cuisine" id="cuisine">
-                                        <option>ARAB</option>
                                         <option>MEXICAN</option>
                                         <option>ITALIAN</option>
-                                        <option>FRENCH</option>
-                                        <option>SPAIN</option>
+                                        <option>CARIBEAN</option>
+                                        <option>ASIAN</option>
+                                        <option>AFRICAN</option>
                                     </select>
                                     <div *ngIf="addFood.controls['cuisine'].invalid && addFood.controls['cuisine'].touched">
                                         <div *ngIf="addFood.controls['cuisine'].errors!.required"

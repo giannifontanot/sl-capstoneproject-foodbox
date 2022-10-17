@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --port 4201",
+    "start": "ng serve -o --port 4203",
     "build": "ng build",
     "build-ghpages": "ng build --output-path docs --base-href=/simplilearn-kitchen-story/",
     "watch": "ng build --watch --configuration development",

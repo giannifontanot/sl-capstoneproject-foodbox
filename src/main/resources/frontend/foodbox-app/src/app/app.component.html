@@ -6,14 +6,14 @@
                     <tr class="align-baseline">
                         <td class="">
 
-                            <a href="https://github.com/giannifontanot/sl-capstoneproject-foodbox" target="new">
+                            <a href="https://github.com/giannifontanot/" target="new">
                                 <img class="cell-gray github-image shadow-0" alt="GitHub Repo"
                                      src="assets/images/github.jpg"/>
                             </a>&nbsp;
                         </td>
                         <td>
                         <span>
-                            <a href="https://github.com/giannifontanot/sl-capstone-foodbox" target="new">/giannifontanot/sl-capstone-foodbox</a>
+                            <a href="https://github.com/giannifontanot/" target="new">/giannifontanot/sl-capstone-foodbox</a>
                         </span>
                         </td>
                     </tr>
@@ -30,7 +30,7 @@
 
         <div class="cell col-4 align-middle">
             <div class="cd-flex justify-content-end">
-                <div class="p-2 align-baseline">
+                <div class="p-2 align-baseline text-end">
                     <span style="color:#A0A0A0;">Java Full Stack Bootcamp<br/>Gianni Fontanot - Angular</span>
                 </div>
             </div>
@@ -38,8 +38,8 @@
     </div>
 </div>
 <div class="cell" *ngIf="getLoginService().loggedIn; else loggedOut">
-    <div class="row" style="margin-bottom: 1rem;"  [ngClass]="getUsernameClass()" class="shadow-0">
-                &nbsp;&nbsp;Welcome {{getUsername()}} {{getUsernameProfile()}}
+    <div class="row" style="margin-bottom: 1rem;" [ngClass]="getUsernameClass()" class="shadow-0">
+        &nbsp;&nbsp;Welcome {{getUsername()}} {{getUsernameProfile()}}
     </div>
     <div class="cell-blue row" style="height:80vh; width:100%">
         <div class="col-2 d-flex justify-content-end">
@@ -63,7 +63,6 @@
                     <i aria-hidden="true" class="fa fa-question"></i>&nbsp;&nbsp;About</a>
             </div>
         </div>
-
         <div class="col-10">
             <router-outlet></router-outlet>
         </div>
@@ -97,7 +96,9 @@
                                            formControlName="username"
                                            value="">
                                 </div>
-                                <div class="cell col-3">
+                                <div class="cell col-3" style="position:relative">
+                                    <img src="assets/images/userpassword.png" alt="" width="90%"
+                                         style="float: left; position:absolute; left:15px; top:-60px;z-index:1000;">
                                 </div>
                             </div>
                             <div class="cell row d-flex justify-content-end align-items-center">
@@ -116,6 +117,7 @@
                                            value=""/>
                                 </div>
                                 <div class="cell col-3">
+
                                 </div>
                             </div>
                             <div class="cell row">

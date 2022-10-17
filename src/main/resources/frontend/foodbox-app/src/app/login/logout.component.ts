@@ -14,7 +14,7 @@ export class LogoutComponent implements OnInit {
     //wait 3 sec
   setTimeout(() => {
       window.location.href="/";
-    }, 700);
+    }, 1000);
   }
 
 }

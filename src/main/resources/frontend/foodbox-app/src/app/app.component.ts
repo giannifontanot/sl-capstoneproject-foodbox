@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
     isLoggedIn: boolean = false;
 
     loginForm = this.formBuilder.group({
-        username: ['', Validators.required],
-        password: ['', Validators.required]
+        username: ['mike', Validators.required],
+        password: ['user123', Validators.required]
     })
 
     constructor(private loginService: LoginService,
