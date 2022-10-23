@@ -37,7 +37,6 @@ export class ChangeComponent implements OnInit {
                 next: (data: any) => {
                     const parsed = JSON.parse(JSON.stringify(data))
                     let retVal = parsed.return
-                    console.log(">>> " + retVal)
                     if (retVal === ("OK")) {
                         alert("Password successfully changed")
                         this.router.navigate(["/inventory"])

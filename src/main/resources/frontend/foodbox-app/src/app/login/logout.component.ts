@@ -13,7 +13,7 @@ export class LogoutComponent implements OnInit {
   ngOnInit(): void {
     //wait 3 sec
   setTimeout(() => {
-      window.location.href="/";
+      window.location.href="http://foodbox.s3.us-west-2.amazonaws.com/index.html";
     }, 1000);
   }
 

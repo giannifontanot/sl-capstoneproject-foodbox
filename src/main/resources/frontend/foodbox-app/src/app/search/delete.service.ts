@@ -8,8 +8,9 @@ import {catchError, tap} from "rxjs/operators";
   providedIn: 'root'
 })
 export class DeleteService {
-  getFoodItemUrl: string = 'http://localhost:8080/food/getFoodItem/';
-  deleteFoodItemUrl: string = 'http://localhost:8080/food/deleteFoodItem/';
+  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  getFoodItemUrl: string = this.baseUrl + '/food/getFoodItem/';
+  deleteFoodItemUrl: string = this.baseUrl + '/food/deleteFoodItem/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,7 +23,6 @@ export class DeleteService {
   }
 
   getFoodItem(foodId: string | null): Observable<IFood> {
-    console.log("getFood: " + foodId);
     return this.http.get<IFood>(this.getFoodItemUrl + foodId);
   }
 
@@ -30,7 +30,7 @@ export class DeleteService {
 
 
     return this.http.delete<IFood>(this.deleteFoodItemUrl + foodId, this.httpOptions).pipe(
-        tap(data => console.log(JSON.stringify(data))),
+        tap(data => data),
         catchError(this.handleError)
     )
   }

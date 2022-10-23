@@ -40,7 +40,6 @@ export class DeleteComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log("delete ngOnInit")
     this.activatedRoute.paramMap.subscribe(params => {
       this.deleteService.getFoodItem(params.get("id")).subscribe(data => {
 

@@ -18,21 +18,21 @@ export class InventoryService {
 
     saveNewItem(inventoryGroup: any): Observable<any> {
         return this.http.post(this.urlSave, inventoryGroup).pipe(
-            tap(data => console.log(JSON.stringify(data))),
+            tap(data => (data)),
             catchError(this.handleError)
         );
     }
 
     deleteItem(foodId: number): Observable<any> {
         return this.http.delete(this.urlDelete + "/" + foodId).pipe(
-            tap(data => console.log("DELETE: " + JSON.stringify(data))),
+            tap(data => (data)),
             catchError(this.handleError)
         );
     }
 
     getFoods(): Observable<IFood[]> {
         return this.http.get<IFood[]>(this.urlGet).pipe(
-            tap(data => console.log(JSON.stringify(data))),
+            tap(data => data),
             catchError(this.handleError)
         )
     }

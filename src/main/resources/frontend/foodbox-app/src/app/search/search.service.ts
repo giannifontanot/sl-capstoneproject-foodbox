@@ -12,9 +12,10 @@ import {NotificationService} from "../notification/notification.service";
     providedIn: 'root'
 })
 export class SearchService {
-    // foodUrl: string = 'api/foods.json';
-    foodUrl: string = 'http://localhost:8080/food/getAllFoods';
-    postPurchaseUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/purchase';
+
+    baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+    foodUrl: string = this.baseUrl + '/food/getAllFoods';
+    postPurchaseUrl: string = '';
     cart: IFood[] = [];
     orden!: IOrden;
     absoluteTotal: number = 0;
@@ -24,14 +25,14 @@ export class SearchService {
 
     getFoods(): Observable<IFood[]> {
         return this.http.get<IFood[]>(this.foodUrl).pipe(
-            tap(data => console.log("data: " + JSON.stringify(data))),
+            tap(data => data),
             catchError(this.handleError)
         );
     }
 
     postPurchase(orden: any): Observable<any> {
         return this.http.post<any>(this.postPurchaseUrl, orden).pipe(
-            tap(data => console.log(JSON.stringify(data))),
+            tap(data => data),
             catchError(this.handleError)
         );
     }

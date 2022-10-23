@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
     loginForm = this.formBuilder.group({
         username: ['mike', Validators.required],
-        password: ['user123', Validators.required]
+        password: ['chicago2022', Validators.required]
     })
 
     constructor(private loginService: LoginService,
@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
 
         this.loginService.submitLogin(this.loginForm.value).subscribe({
             next: (data) => {
-            //     data = JSON.parse(JSON.stringify(data));
                 data.profile !== "F"?this.isLoggedIn = true:this.isLoggedIn = false;
                 data.profile === "A"?this.isAdmin = true:this.isAdmin = false;
 
@@ -42,10 +41,8 @@ export class AppComponent implements OnInit {
                 this.getLoginService().contact = data.contact;
                 this.getLoginService().credit = data.credit;
 
-                console.log("data", data);
-
             },
-            error: (err => console.log("ERROR: > " + err))
+            error: (err => console.error("ERROR: > " + err))
         });
     }
 

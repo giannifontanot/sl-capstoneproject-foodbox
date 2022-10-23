@@ -41,7 +41,6 @@ export class NewComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("New ngOnInit")
 
   }
 

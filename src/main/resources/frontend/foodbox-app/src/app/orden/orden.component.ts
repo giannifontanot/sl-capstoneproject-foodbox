@@ -24,7 +24,6 @@ export class OrdenComponent implements OnInit {
 
         this.sub = this.ordenService.getDisplayOrden(ordenNum).subscribe({
             next: data => {
-                console.log("ngOnInit: data: " + JSON.stringify(data));
                 this.displayOrdens = data
 
 
@@ -55,7 +54,7 @@ export class OrdenComponent implements OnInit {
 
                 return this.displayOrdens;
             },
-            error: err => console.log(err)
+            error: err => alert(err)
         });
     }
 

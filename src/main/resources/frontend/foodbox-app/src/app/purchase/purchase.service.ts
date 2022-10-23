@@ -10,8 +10,9 @@ import {IOrden} from "../model/orden";
 })
 export class PurchaseService {
   // foodUrl: string = 'api/foods.json';
-  foodUrl: string = 'http://localhost:8080/food/getAllFoods';
-  postPurchaseUrl: string = 'http://localhost:8080/cart/postPurchase';
+  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  foodUrl: string = this.baseUrl + '/food/getAllFoods';
+  postPurchaseUrl: string = this.baseUrl + '/cart/postPurchase';
   cart: IFood[] = [];
   absoluteTotal: number = 0;
 

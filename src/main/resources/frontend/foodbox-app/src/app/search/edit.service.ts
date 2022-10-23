@@ -8,8 +8,9 @@ import {catchError, tap} from "rxjs/operators";
     providedIn: 'root'
 })
 export class EditService {
-    getFoodItemUrl: string = 'http://localhost:8080/food/getFoodItem/';
-    updateFoodItemUrl: string = 'http://localhost:8080/food/updateFoodItem/';
+    baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+    getFoodItemUrl: string = this.baseUrl + '/food/getFoodItem/';
+    updateFoodItemUrl: string = this.baseUrl + '/food/updateFoodItem/';
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -21,7 +22,6 @@ export class EditService {
     }
 
     getFoodItem(id: string | null): Observable<IFood> {
-        console.log("getFood: " + id);
         return this.http.get<IFood>(this.getFoodItemUrl + id);
     }
 
@@ -29,7 +29,7 @@ export class EditService {
 
 
         return this.http.post<IFood>(this.updateFoodItemUrl, food, this.httpOptions).pipe(
-            tap(data => console.log(JSON.stringify(data))),
+            tap(data => data),
             catchError(this.handleError)
         )
     }

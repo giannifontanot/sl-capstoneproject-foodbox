@@ -32,6 +32,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+
         this.sub = this.searchService.getFoods().subscribe({
             next: data => {
                 this.foods = data;
@@ -82,7 +83,6 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
 
     set descriptionFilter(value: string) {
-        console.log("this._priceFilter = " + this._priceFilter)
         this._descriptionFilter = value;
         this.foodsFiltered = this.foodsOriginal.filter(
             food => food.description.toLowerCase().includes(value.toLowerCase())
@@ -99,7 +99,6 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     set priceFilter(value: number) {
 
-        console.log("value: " + value)
         this._priceFilter = value;
         this.foodsFiltered = this.foodsOriginal.filter(
             food => (value === null ? food.price > 0 : food.price <= value)

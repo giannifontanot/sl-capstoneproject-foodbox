@@ -8,7 +8,8 @@ import {IUser} from "../model/user";
     providedIn: 'root'
 })
 export class LoginService {
-    userUrl: string = 'http://localhost:8080/login';
+    baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+    userUrl: string = this.baseUrl + '/login';
     putUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/users/';
     private isAdmin: boolean = false;
     private isLoggedIn: boolean = false;
@@ -76,9 +77,7 @@ export class LoginService {
         };
 
         return this.http.post<IUser>(this.userUrl, formValue, httpOptions).pipe(
-            tap(data => {
-                console.log("data: " + JSON.stringify(data));
-            }),
+            tap(data => {(data)}),
             catchError(err => this.handleError(err))
         )
     }
@@ -98,6 +97,7 @@ export class LoginService {
             errorMessage = `Server returned code: ${error.status}, error message is: ${error.message}`;
         }
         console.error(errorMessage);
+        alert(`Login Error. \n\nVerify your username and password are correct.\nAlso verify you use the link provided for the application:\nhttp://foodbox.s3.us-west-2.amazonaws.com/index.html (http, not https)`);
         return throwError(errorMessage);
     }
 

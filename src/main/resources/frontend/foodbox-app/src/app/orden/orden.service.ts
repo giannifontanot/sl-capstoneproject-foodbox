@@ -17,7 +17,8 @@ export class OrdenService {
     })
   };
 
-  ordenUrl: string = 'http://localhost:8080/cart/getDisplayOrden/';
+  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  ordenUrl: string = this.baseUrl + '/cart/getDisplayOrden/';
   constructor(private http: HttpClient) {
 
   }
@@ -25,7 +26,7 @@ export class OrdenService {
 
   getDisplayOrden(ordenNum: number): Observable<IDisplayOrden[]> {
     return this.http.get<IDisplayOrden[]>(this.ordenUrl + ordenNum, this.httpOptions).pipe(
-        tap(data => console.log("data: " + JSON.stringify(data))),
+        tap(data => data),
         catchError(this.handleError)
 
     );

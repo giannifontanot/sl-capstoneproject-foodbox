@@ -8,7 +8,8 @@ import {catchError, tap} from "rxjs/operators";
   providedIn: 'root'
 })
 export class NewService {
-  addFoodItemUrl: string = 'http://localhost:8080/food/addFoodItem/';
+  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  addFoodItemUrl: string = this.baseUrl + '/food/addFoodItem/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,7 +26,7 @@ export class NewService {
 
 
     return this.http.post<IFood>(this.addFoodItemUrl, food, this.httpOptions).pipe(
-        tap(data => console.log(JSON.stringify(data))),
+        tap(data => data),
         catchError(this.handleError)
     )
   }
