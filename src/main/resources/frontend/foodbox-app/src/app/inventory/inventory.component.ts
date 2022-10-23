@@ -8,8 +8,8 @@ import {NotificationService} from "../notification/notification.service";
 import {LoginService} from "../login/login.service";
 
 @Component({
-    selector: 'ks-inventory',
-    templateUrl: './inventory.component.html',
+    selector: 'fb-inventory',
+    templateUrl: '',
     styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
