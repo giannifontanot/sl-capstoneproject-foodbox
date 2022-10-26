@@ -8,16 +8,16 @@ import {IUser} from "../model/user";
     providedIn: 'root'
 })
 export class LoginService {
-    baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+     baseUrl: string = "http://foodbox.s3.us-west-2.amazonaws.com/index.html";
+    // baseUrl: string = "http://localhost:5000";
     userUrl: string = this.baseUrl + '/login';
-    putUrl: string = 'https://62e8570a249bb1284ead379a.mockapi.io/api/v1/users/';
+    putUrl: string = '';
     private isAdmin: boolean = false;
     private isLoggedIn: boolean = false;
     private _id!: number;
     private _name!: string;
     private _contact!: string;
     private _credit!: string;
-
 
 
     constructor(private http: HttpClient) {
@@ -75,7 +75,6 @@ export class LoginService {
         const httpOptions = {
             headers: new HttpHeaders({'Accept': 'application/json', 'Content-Type': 'application/json'})
         };
-
         return this.http.post<IUser>(this.userUrl, formValue, httpOptions).pipe(
             tap(data => {(data)}),
             catchError(err => this.handleError(err))

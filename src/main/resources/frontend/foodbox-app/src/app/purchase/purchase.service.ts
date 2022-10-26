@@ -4,19 +4,21 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
 import {IOrden} from "../model/orden";
+import { LoginService } from '../login/login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PurchaseService {
   // foodUrl: string = 'api/foods.json';
-  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  baseUrl: string = this.loginService.baseUrl;
   foodUrl: string = this.baseUrl + '/food/getAllFoods';
   postPurchaseUrl: string = this.baseUrl + '/cart/postPurchase';
   cart: IFood[] = [];
   absoluteTotal: number = 0;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private loginService: LoginService) {
   }
 
   postPurchase(orden: IOrden): Observable<any> {

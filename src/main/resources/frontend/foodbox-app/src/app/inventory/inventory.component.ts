@@ -9,7 +9,7 @@ import {LoginService} from "../login/login.service";
 
 @Component({
     selector: 'fb-inventory',
-    templateUrl: '',
+    templateUrl: '/inventory.component.html',
     styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {

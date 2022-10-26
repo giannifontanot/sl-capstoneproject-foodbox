@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, tap} from "rxjs/operators";
 import {Observable, throwError} from "rxjs";
 import {IDisplayOrden} from "../model/displayOrden";
+import {LoginService} from "../login/login.service";
 
 
 @Injectable({
@@ -17,9 +18,10 @@ export class OrdenService {
     })
   };
 
-  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  baseUrl: string = this.loginService.baseUrl;
   ordenUrl: string = this.baseUrl + '/cart/getDisplayOrden/';
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private loginService: LoginService) {
 
   }
 

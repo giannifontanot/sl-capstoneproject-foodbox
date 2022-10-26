@@ -6,7 +6,7 @@ import {InventoryService} from "../inventory/inventory.service";
 
 
 @Component({
-    templateUrl: '',
+    templateUrl: "./login.component.html",
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {

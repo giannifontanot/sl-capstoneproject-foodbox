@@ -6,21 +6,24 @@ import {catchError, tap} from "rxjs/operators";
 import {IOrden} from "../model/orden";
 import {NotificationType} from "../notification/notification.message";
 import {NotificationService} from "../notification/notification.service";
+import {LoginService} from "../login/login.service";
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class SearchService {
-
-    baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+    baseUrl: string = this.loginService.baseUrl;
     foodUrl: string = this.baseUrl + '/food/getAllFoods';
     postPurchaseUrl: string = '';
     cart: IFood[] = [];
     orden!: IOrden;
     absoluteTotal: number = 0;
 
-    constructor(private http: HttpClient, private notificationService: NotificationService) {
+    constructor(private http: HttpClient,
+                private notificationService: NotificationService,
+                private loginService: LoginService
+    ) {
     }
 
     getFoods(): Observable<IFood[]> {

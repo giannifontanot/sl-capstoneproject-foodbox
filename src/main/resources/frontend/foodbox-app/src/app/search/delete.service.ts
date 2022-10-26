@@ -3,12 +3,13 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {IFood} from "../model/food";
 import {catchError, tap} from "rxjs/operators";
+import {LoginService} from "../login/login.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeleteService {
-  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  baseUrl: string = this.loginService.baseUrl;
   getFoodItemUrl: string = this.baseUrl + '/food/getFoodItem/';
   deleteFoodItemUrl: string = this.baseUrl + '/food/deleteFoodItem/';
 
@@ -19,7 +20,8 @@ export class DeleteService {
       'Access-Control-Allow-Origin': '*'
     })
   };
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private loginService: LoginService) {
   }
 
   getFoodItem(foodId: string | null): Observable<IFood> {

@@ -3,12 +3,13 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {IFood} from "../model/food";
 import {catchError, tap} from "rxjs/operators";
+import {LoginService} from "../login/login.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewService {
-  baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com"
+  baseUrl: string = this.loginService.baseUrl;
   addFoodItemUrl: string = this.baseUrl + '/food/addFoodItem/';
 
   httpOptions = {
@@ -17,7 +18,8 @@ export class NewService {
       'Content-Type': 'application/json'
     })
   };
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private loginService: LoginService) {
   }
 
 

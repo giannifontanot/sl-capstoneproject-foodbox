@@ -55,10 +55,17 @@
                 </div>
                 <div *ngFor="let food of foodsFiltered" class="cell row border rounded p-1">
                     <div class="cell col-1 d-flex align-items-center">
-                        <button *ngIf="!getLoginService().admin" (click)="select(food)"
-                                class="cell btn btn-outline-primary btn-sm alert-secondary ">
-                            select
-                        </button>
+                        <div *ngIf="!getLoginService().admin">
+                            <div *ngIf="food.isEnabled=='Y'">
+                                <button (click)="select(food)"
+                                        class="cell btn btn-outline-primary btn-sm alert-secondary ">
+                                    select
+                                </button>
+                            </div>
+                            <div *ngIf="food.isEnabled=='N'">
+                                Not Available
+                            </div>
+                        </div>
                         <button *ngIf="getLoginService().admin" (click)="edit(food)"
                                 class="cell btn btn-outline-primary btn-sm alert-secondary adminBorder">
                             <i aria-hidden="true" class='fa fa-pencil'></i> edit
@@ -69,9 +76,13 @@
                     <div class="cell col-2 d-flex align-items-center">
                         <img class="cell  polaroid" [ngClass]="RandomTilt()" src="{{food.imageUrl}}" alt="Dish" width="150px"/>
                     </div>
-                    <div class="cell col-1 d-flex align-items-center"><div class="cell text-centered">{{food.cuisine}}</div></div>
+                    <div class="cell col-1 d-flex align-items-center">
+                        <div class="cell text-centered">{{food.cuisine}}</div>
+                    </div>
                     <div class="cell col-4 d-flex align-items-center">{{food.description}}</div>
-                    <div class="cell col-1 d-flex align-items-center"><div class="cell text-centered">{{food.price|currency}}</div></div>
+                    <div class="cell col-1 d-flex align-items-center">
+                        <div class="cell text-centered">{{food.price|currency}}</div>
+                    </div>
                     <div class="cell col-1 d-flex align-items-center">
 
                         <button *ngIf="getLoginService().admin" (click)="delete(food)"
