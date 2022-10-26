@@ -8,7 +8,8 @@ import {IUser} from "../model/user";
     providedIn: 'root'
 })
 export class LoginService {
-     baseUrl: string = "http://foodbox.s3.us-west-2.amazonaws.com/index.html";
+     //baseUrl: string = "https://6l5b87cw27.execute-api.us-west-2.amazonaws.com";
+     baseUrl: string = "http://foodboxapp-env.eba-5ye8smp8.us-west-2.elasticbeanstalk.com";
     // baseUrl: string = "http://localhost:5000";
     userUrl: string = this.baseUrl + '/login';
     putUrl: string = '';
